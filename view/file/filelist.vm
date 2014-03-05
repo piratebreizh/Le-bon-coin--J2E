@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="col-md-12">
+		<ul>
+		#if( $parenturl )
+		   <li style="height: 2em;"><a href="$parenturl">.. (parent dir)</a></li>
+		#end
+		#foreach( $item in $items )
+			#if( $item.isDirectory())
+				<li style="height: 2em;"><a href="$item.getName()/">$item.getName()</a></li>
+			#else
+				<li style="height: 2em;"><a href="$item.getName()">$item.getName()</a> <a class="btn btn-danger btn-xs" href="$context.getRequest().getContextPath()/file/delete$context.getParameter("path")$item.getName()">delete</a></li>
+			#end
+		#end
+		</ul>
+		<form role="form" action="$context.getRequest().getContextPath()/file/upload/$context.getParameter("path")" method="post" enctype="multipart/form-data">
+		  <div class="form-group">
+		    <label for="inputFile">Upload a file here</label>
+		    <input type="file" name="file" id="inputFile">
+		  </div>
+		  <button type="submit" class="btn btn-default">Upload File</button>
+		</form>
+		
+	</div>
+</div>
