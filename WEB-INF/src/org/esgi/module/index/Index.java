@@ -6,12 +6,12 @@ import org.esgi.web.action.IContext;
 public class Index extends AbstractAction{
 	
 	public void execute(IContext context) throws Exception {
-		context.getVelocityContext().put("title", "Title generer");
+		context.getVelocityContext().put("title", "Index");
 		System.out.println(context.getRequest().getParameter("login"));
 	}
 	@Override
 	public String getRoute() {
-		return "/";
+		return "^/$";
 	}
 
 }
