@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.velocity.app.Velocity;
+import org.esgi.module.M2recherche.Recherche;
 import org.esgi.module.file.FileDelete;
 import org.esgi.module.file.FileDownload;
 import org.esgi.module.file.FileList;
@@ -25,7 +26,7 @@ import org.esgi.web.route.Router;
 /**
  * Le frontcontroller est
  * le lien entre tomcat et votre
- * framework. Il g��n��re le context pour 
+ * framework. Il g������n������re le context pour 
  * chaque requete et peu contenir des filtres 
  * d'entree et de sortie pour chaque requete
  * exemple validateur de champs ou compression gzip.
@@ -67,6 +68,7 @@ public class FrontController extends HttpServlet{
 		registerAction(new FileDelete());
 		registerAction(new Index());
 		registerAction(new Connect());
+		registerAction(new Recherche());
 
 		layoutRender = new LayoutRenderer();
 	}

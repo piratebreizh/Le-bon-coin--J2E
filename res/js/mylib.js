@@ -18,10 +18,12 @@ var global = this,
     global.Esgi.html.Form = function(cfg) {
       var me = this;
        me.cfg = cfg;
+       console.log(cfg.url);
        me.render();
        me.initInputs();
-       me.submit = $("<button>Envoyer</button>");
+       me.submit = $("<button>Chercher</button>");
        $(me.cfg.renderTo).append(me.submit);
+       
        me.submit.on('click', function(e){me.onButtonClick(e)});
     };
 
@@ -34,14 +36,19 @@ var global = this,
                 me._inputs[item.name] = new Esgi.html.inputs[item.type](item);            
               });
       },
+      
+      
       addInput : function(input) {
 
 
       },
+      
       render : function(){
         this.el = $("<form/>");
          $(this.cfg.renderTo).append(this.el)
       },
+      
+      
       onButtonClick : function(e) {
           var me = this, data = {};
           $.each(me._inputs, function(key, item) {
