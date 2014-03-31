@@ -11,7 +11,7 @@ public class Index extends AbstractAction{
 	}
 	@Override
 	public String getRoute() {
-		return "/";
+		return "/index/";
 	}
 
 }

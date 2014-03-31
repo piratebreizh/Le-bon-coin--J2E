@@ -1,6 +1,8 @@
 package org.esgi.web.action;
 
+import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,4 +29,6 @@ public interface IContext {
 	void addInlineCSS(String cssRule);
 	void addRawHeader(String rawHeadLine);
 	void addOnJsReady(String str);
+	Set<String> getCSSDependency();
+	List<String> getInlineCSS();
 }
