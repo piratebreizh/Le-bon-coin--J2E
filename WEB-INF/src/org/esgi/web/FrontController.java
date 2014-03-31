@@ -17,6 +17,8 @@ import org.esgi.module.file.FileList;
 import org.esgi.module.file.FileUpload;
 import org.esgi.module.index.Index;
 import org.esgi.module.user.Connect;
+import org.esgi.module.user.Enregistrement;
+import org.esgi.module.user.Inscription;
 import org.esgi.web.action.IAction;
 import org.esgi.web.action.IContext;
 import org.esgi.web.layout.LayoutRenderer;
@@ -67,6 +69,8 @@ public class FrontController extends HttpServlet{
 		registerAction(new FileDelete());
 		registerAction(new Index());
 		registerAction(new Connect());
+		registerAction(new Inscription());
+		registerAction(new Enregistrement());
 
 		layoutRender = new LayoutRenderer();
 	}
