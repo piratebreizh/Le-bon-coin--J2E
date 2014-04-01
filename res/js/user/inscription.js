@@ -6,11 +6,14 @@ $(function(){
 		new Esgi.html.Form({
 			url : APP_CONTEXT+'/user/enregistrement/',
 			renderTo : cfg.id,
+			redirect : APP_CONTEXT+'/index/',
+			msgSuccess : 'Votre compte a bien été créé. Vous allez être redirigé vers l\'accueil.',
 			inputs : [
 			          {
 			        	  type : "Text",
 			        	  name : 'nom',
 			        	  id : 'nom',
+			        	  label : "Nom",
 			        	  emptyText : 'Saisir votre nom' 
 			          },
 			          {
@@ -31,11 +34,6 @@ $(function(){
 			        	  label : "Password",
 			        	  name : 'password',
 			        	  id : 'password'
-			          },{
-			        	  type : "Select",
-			        	  label : "Select",
-			        	  name : 'select',
-			        	  options : {val1 : 'choix1',val2 : 'choix2'}
 			          }
 			          ]
 		});

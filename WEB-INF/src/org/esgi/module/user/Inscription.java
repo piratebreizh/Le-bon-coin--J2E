@@ -7,8 +7,8 @@ public class Inscription extends AbstractAction {
 
 	public void execute(IContext context) throws Exception {
 		context.getVelocityContext().put("title", "Inscription");
-		context.addCSSDependency(context.getProperties().get("context")
-				+ "/res/css/commun.css");
+		
+		context.addCSSDependency(context.getProperties().get("context") + "/res/css/commun.css");
 	}
 
 	@Override
