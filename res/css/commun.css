@@ -1,7 +1,33 @@
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #FFFFEB;
+	font-family: Verdana, "DejaVu Sans", "Bitstream Vera Sans", Geneva,
+		sans-serif;
+	font-size: 12px;
+}
+
+#mainContainer {
+	margin: auto;
+	position: relative;
+	text-align: left;
+	width: 980px;
+}
+
 footer {
-	background-color: blue;
 	color: red;
 	position: absolute;
 	bottom: 0px;
 	margin: 0 auto;
+	padding-top: 15px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+a {
+	margin: 5px;
+}
+
+input {
+	margin: 5px;
 }
