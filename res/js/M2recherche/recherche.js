@@ -4,7 +4,7 @@ $(function(){
 
 	Esgi.module.user.Connect = function (cfg) {
 		new Esgi.html.Form({
-			url : APP_CONTEXT+'/ResultatRecherche/',
+			url : APP_CONTEXT+'/index/',
 			renderTo : cfg.id,
 			inputs : [
 			          {

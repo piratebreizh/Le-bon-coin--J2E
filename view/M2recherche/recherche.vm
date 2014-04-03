@@ -1,6 +1,7 @@
 $context.setPageTitle("Welcome")
 
 <div id="container">
+
 </div>
 
 #set ($js = $context.getProperties().get("context")+"/res/js/M2recherche/recherche.js")
@@ -8,4 +9,10 @@ $context.addJSDependency($js)
 
 #set ($js = $context.getProperties().get("context")+"/res/js/M2recherche/table.js")
 $context.addJSDependency($js)
+
+#set ($js = $context.getProperties().get("context")+"/res/js/mylib-3.js")
+$context.addJSDependency($js)
+
+
+
 $context.addOnJsReady("new Esgi.module.user.Connect({ id : '#container'})")
