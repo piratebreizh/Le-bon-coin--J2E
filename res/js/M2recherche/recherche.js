@@ -16,10 +16,12 @@ $(function(){
 			        	  type : "Select",
 			        	  label : "categorie",
 			        	  name : 'Catégorie',
+			        	  options : {val1 : 'choix1',val2 : 'choix2'}
 			          },{
 			        	  type : "Select",
 			        	  label : "ville",
 			        	  name : 'Ville',
+			        	  options : {val1 : 'choix1',val2 : 'choix2'}
 			          }
 			          ]
 		});
