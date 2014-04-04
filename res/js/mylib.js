@@ -52,8 +52,10 @@ var global = this, loadMyLib = function(onloaded) {
 				method : 'POST',
 				data : data,
 				success : function(response) {
-					alert('NICE');
-					console.log(response);
+					if(me.cfg.msgSuccess)
+						alert(me.cfg.msgSuccess);
+					if(me.cfg.redirect)
+						$(location).attr('href', me.cfg.redirect);
 				}
 
 			})
@@ -103,7 +105,7 @@ var global = this, loadMyLib = function(onloaded) {
 		var me = this;
 		me.cfg = cfg;
 		me.el = $("<select name=\""+cfg.name+"\" id=\""+cfg.id+"\">");
-		for(var val in cfg.options){
+		for(var val in cfg.options) {
 		    $("<option />", {value: val, text: cfg.options[val]}).appendTo(me.el );
 		}
 		me.init();
@@ -111,6 +113,21 @@ var global = this, loadMyLib = function(onloaded) {
 	}
 	Esgi.html.inputs.Select.prototype = commons;
 
+	//
+	// LINKS
+	//
+	Esgi.html.link = function(cfg) {
+		var me = this;
+		me.cfg = cfg;
+		me.el = $("<a href=\""+cfg.href+"\">"+cfg.label+"</a>");
+		this.init();
+	}
+	Esgi.html.link.prototype = {
+			init : function() {
+				var me = this;
+				$(me.cfg.renderTo).append(me.el);
+			}
+		};
 }
 
 $(loadMyLib);

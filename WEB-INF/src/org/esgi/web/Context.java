@@ -49,6 +49,7 @@ public class Context implements IContext {
 		jsUrls = new TreeSet<String>();
 		cssUrls = new TreeSet<String>();
 		inlineCss = new ArrayList<>();
+		
 	}
 	
 	@Override
@@ -112,10 +113,22 @@ public class Context implements IContext {
 	public void addCSSDependency(String url) {
 		cssUrls.add(url);
 	}
+
+	@Override
+	public Set<String> getCSSDependency(){
+		return cssUrls;
+	}
+	
 	@Override
 	public void addInlineCSS(String cssRule) {
 		inlineCss.add(cssRule);
 	}
+	
+	@Override	
+	public List<String> getInlineCSS(){
+		return inlineCss;
+	}
+	
 	@Override
 	public void addRawHeader(String rawHeadLine) {
 		rawHeaders.add(rawHeadLine);

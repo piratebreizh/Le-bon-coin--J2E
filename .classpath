@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/jackson-databind-2.3.1.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/velocity-1.7-dep.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/velocity-1.7.jar"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/mysql-connector-java-5.1.29-bin.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

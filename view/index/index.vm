@@ -1,10 +1,7 @@
-$context.setPageTitle("Welcome")
-
 <div id="container">
 </div>
 
-#set ($js = $context.getProperties().get("context")+"/res/js/user/connect.js")
+#set ($js = $context.getProperties().get("context")+"/res/js/index/index.js")
 $context.addJSDependency($js)
-#set ($js = $context.getProperties().get("context")+"/res/js/user/table.js")
-$context.addJSDependency($js)
-$context.addOnJsReady("new Esgi.module.user.Connect({ id : '#container'})")
+#set ($urlBase = $context.getProperties().get("context"))
+$context.addOnJsReady("new Esgi.module.index.Index({ id : '#container'})")

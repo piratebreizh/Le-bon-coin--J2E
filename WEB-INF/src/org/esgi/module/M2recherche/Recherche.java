@@ -11,12 +11,9 @@ public class Recherche extends AbstractAction{
 	public void execute(IContext context) throws Exception {
 		context.getVelocityContext().put("title", "Recherche");
 		
-		System.out.println(context.getRequest().getParameter("nomRecherche"));
+		System.out.println("nomm recherche : " + context.getRequest().getParameter("nomRecherche"));
 		
 		context.getVelocityContext().put("title", context.getRequest().getParameter("nomRecherche"));
-		
-	
-			
 		
 	}
 	@Override

@@ -55,7 +55,7 @@ public class LayoutRenderer {
 			}	
 		}
 		
-		//Impression �� l'��cran de la vue racine (ici shared/html) 
+		//Impression à l'écran de la vue racine (ici shared/html) 
 		String templateFile = this.checkTemplateFile(mainTemplateName, action, context);
 		
 		if(templateFile != null){

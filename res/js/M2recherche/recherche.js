@@ -4,7 +4,7 @@ $(function(){
 
 	Esgi.module.user.Connect = function (cfg) {
 		new Esgi.html.Form({
-			url : APP_CONTEXT+'/index/',
+			url : APP_CONTEXT+'/resultatrecherche/',
 			renderTo : cfg.id,
 			inputs : [
 			          {
@@ -15,13 +15,13 @@ $(function(){
 			          },{
 			        	  type : "Select",
 			        	  label : "categorie",
-			        	  name : 'Catégorie',
-			        	  options : {val1 : 'choix1',val2 : 'choix2'}
+			        	  name : 'categorie',
+			        	  options : {vehicule : 'Véhicule',immobilier: 'Immobilier',mutlimedia: 'Multimédia'}
 			          },{
 			        	  type : "Select",
 			        	  label : "ville",
-			        	  name : 'Ville',
-			        	  options : {val1 : 'choix1',val2 : 'choix2'}
+			        	  name : 'ville',
+			        	  options : {idf : 'Ile de France',bretagne : 'Bretagne'}
 			          }
 			          ]
 		});
