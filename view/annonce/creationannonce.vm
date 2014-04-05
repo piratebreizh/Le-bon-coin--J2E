@@ -1,0 +1,142 @@
+<div class="row">
+	<form role="form" action="$context.getRequest().getContextPath()/annonce/creation/" method="post" enctype="multipart/form-data">
+	  <div class="form-group">
+	    <h2>Localisation</h2>
+	    <label for="region">Region</label>
+	    <div class="select">
+	    	<select name="region" onchange="showDepartment('region');" id="region">
+				<option value="0">&laquo;Choisissez la region;</option>
+                <option value="1" >Alsace</option>
+				<option value="2" >Aquitaine</option>
+				<option value="3" >Auvergne</option>
+				<option value="4" >Basse-Normandie</option>
+				<option value="5" >Bourgogne</option>
+				<option value="6" >Bretagne</option>
+				<option value="7" >Centre</option>
+				<option value="8" >Champagne-Ardenne</option>
+				<option value="9" >Corse</option>
+				<option value="10" >Franche-Comte</option>
+				<option value="11" >Haute-Normandie</option>
+				<option value="12" >Ile-de-France</option>
+				<option value="13" >Languedoc-Roussillon</option>
+				<option value="14" >Limousin</option>
+				<option value="15" >Lorraine</option>
+				<option value="16" >Midi-Pyrenees</option>
+				<option value="17" >Nord-Pas-de-Calais</option>
+				<option value="18" >Pays de la Loire</option>
+				<option value="19" >Picardie</option>
+				<option value="20" >Poitou-Charentes</option>
+				<option value="21" >Provence-Alpes-Cote d'Azur</option>
+				<option value="22" >Rhone-Alpes</option>
+				<option value="23" >Guadeloupe</option>
+				<option value="24" >Martinique</option>
+				<option value="25" >Guyane</option>
+				<option value="26" >Reunion</option>
+            </select>
+        </div>
+	    <label for="cp">Code Postal</label>
+	    <input id="codepostal" name="cp" size="6" maxlength="5" type="text" value="" />
+	    <h2>Categorie</h2>
+	    <div class="select" name="catego">
+            <select onchange="showCategory('category', 'carextras', 'company_ad', 'err_category',0);toggleCompteproFields();changeNewAdClass();showBrand('category'); resetAnimalType(); resetAnimalFields();" name="category" id="category">
+                <option value="0">&laquo;Choisissez la cat&eacute;gorie&raquo;</option>
+                <option value='1' style='background-color:#dcdcc3' disabled id='cat1' >-&#45; VEHICULES -&#45;</option>
+                <option value='2'  id='cat2' >Voitures</option>
+                <option value='3'  id='cat3' >Motos</option>
+                <option value='4'  id='cat4' >Caravaning</option>
+                <option value='5'  id='cat5' >Utilitaires</option>
+                <option value='6'  id='cat6' >Equipement Auto</option>
+                <option value='44'  id='cat44' >Equipement Moto</option>
+                <option value='50'  id='cat50' >Equipement Caravaning</option>
+                <option value='7'  id='cat7' >Nautisme</option>
+                <option value='51'  id='cat51' >Equipement Nautisme</option>
+                <option value='8' style='background-color:#dcdcc3' disabled id='cat8' >-&#45; IMMOBILIER -&#45;</option>
+                <option value='9'  id='cat9' >Ventes immobili&egrave;res</option>
+                <option value='10'  id='cat10' >Locations</option>
+                <option value='11'  id='cat11' >Colocations</option>
+                <option value='12'  id='cat12' >Locations de vacances</option>
+                <option value='13'  id='cat13' >Bureaux &amp; Commerces</option>
+                <option value='14' style='background-color:#dcdcc3' disabled id='cat14' >-&#45; MULTIMEDIA -&#45;</option>
+                <option value='15'  id='cat15' >Informatique</option>
+                <option value='43'  id='cat43' >Consoles &amp; Jeux vid&eacute;o</option>
+                <option value='16'  id='cat16' >Image &amp; Son</option>
+                <option value='17'  id='cat17' >T&eacute;l&eacute;phonie</option>
+                <option value='18' style='background-color:#dcdcc3' disabled id='cat18' >-&#45; MAISON -&#45;</option>
+                <option value='19'  id='cat19' >Ameublement</option>
+                <option value='20'  id='cat20' >Electrom&eacute;nager</option>
+                <option value='45'  id='cat45' >Arts de la table</option>
+                <option value='39'  id='cat39' >D&eacute;coration</option>
+                <option value='46'  id='cat46' >Linge de maison</option>
+                <option value='21'  id='cat21' >Bricolage</option>
+                <option value='52'  id='cat52' >Jardinage</option>
+                <option value='22'  id='cat22' >V&ecirc;tements</option>
+                <option value='53'  id='cat53' >Chaussures</option>
+                <option value='47'  id='cat47' >Accessoires &amp; Bagagerie</option>
+                <option value='42'  id='cat42' >Montres &amp; Bijoux</option>
+                <option value='23'  id='cat23' >Equipement b&eacute;b&eacute;</option>
+                <option value='54'  id='cat54' >V&ecirc;tements b&eacute;b&eacute;</option>
+                <option value='24' style='background-color:#dcdcc3' disabled id='cat24' >-&#45; LOISIRS -&#45;</option>
+                <option value='25'  id='cat25' >DVD / Films</option>
+                <option value='26'  id='cat26' >CD / Musique</option>
+                <option value='27'  id='cat27' >Livres</option>
+                <option value='28'  id='cat28' >Animaux</option>
+                <option value='55'  id='cat55' >V&eacute;los</option>
+                <option value='29'  id='cat29' >Sports &amp; Hobbies</option>
+                <option value='30'  id='cat30' >Instruments de musique</option>
+                <option value='40'  id='cat40' >Collection</option>
+                <option value='41'  id='cat41' >Jeux &amp; Jouets</option>
+                <option value='48'  id='cat48' >Vins &amp; Gastronomie</option>
+                <option value='56' style='background-color:#dcdcc3' disabled id='cat56' >-&#45; MATERIEL PROFESSIONNEL -&#45;</option>
+                <option value='57'  id='cat57' >Mat&eacute;riel Agricole</option>
+                <option value='58'  id='cat58' >Transport &#45; Manutention</option>
+                <option value='59'  id='cat59' >BTP &#45; Chantier Gros&#45;oeuvre</option>
+                <option value='60'  id='cat60' >Outillage &#45; Mat&eacute;riaux 2nd&#45;oeuvre</option>
+                <option value='32'  id='cat32' >&Eacute;quipements Industriels</option>
+                <option value='61'  id='cat61' >Restauration &#45; H&ocirc;tellerie</option>
+                <option value='62'  id='cat62' >Fournitures de Bureau</option>
+                <option value='63'  id='cat63' >Commerces &amp; March&eacute;s</option>
+                <option value='64'  id='cat64' >Mat&eacute;riel M&eacute;dical</option>
+                <option value='31' style='background-color:#dcdcc3' disabled id='cat31' >-&#45; EMPLOI &amp; SERVICES -&#45;</option>
+                <option value='33'  id='cat33' >Emploi</option>
+                <option value='34'  id='cat34' >Services</option>
+                <option value='35'  id='cat35' >Billetterie</option>
+                <option value='49'  id='cat49' >Ev&eacute;nements</option>
+                <option value='36'  id='cat36' >Cours particuliers</option>
+                <option value='37' style='background-color:#dcdcc3' disabled id='cat37' >-&#45; -&#45; -&#45;</option>
+                <option value='38'  id='cat38' >Autres</option>
+            </select>
+		</div>
+        <div id="rpart" class="radio">
+            <input id="private_ad_id" name="company_ad" value="0" checked="checked" type="radio" />
+            <label for="private_ad_id" id="lprivate_ad">Particulier</label>;
+        </div>
+        <div id="rpro" class="radio">
+            <input id="company_ad_id" name="company_ad" value="1" type="radio" />
+            <label for="company_ad_id" id="lcompany_ad">Professionnel</label>
+        </div>
+        <div id="roffr" class="radio">
+            <input id="offre" name="typeann" type="radio" name="type" value="0" checked="checked"/> 
+            <label for="rs">Offres</label>
+        </div>
+    	<div id="rdem" class="radio">
+            <input id="demande" name="typeann" type="radio" name="type" value="1"/> 
+            <label for="rk">Demandes</label>
+        </div>
+        <h2>Vos informations</h2>
+        <div class="labelform" id="lname" >Votre nom:</div>
+        	<input type="text" id="name" name="name" size="35" maxlength="50" value=""  />
+        <div class="labelform" id="lmail" >EMail:</div>
+            <input type="text" id="email" name="email" size="35" maxlength="60" value="" />
+       <div class="labelform" id="ltel" >Telephone:</div>
+            <input type="text" id="phone" name="phone" size="17" maxlength="10" value="" />
+       <h2>Votre annonce</h2>
+       <div class="labelform" id="ltitreannonce" >Titre de l'annonce:</div>
+          	<input type="text" id="subject" name="subject" size="50" maxlength="50" value="" />
+       <div class="labelform" id="ldescannonce" >Description:</div>
+            <textarea cols="50" rows="10" name="body" id="body"></textarea>
+       <div class="labelform" id="lprix" >Prix:</div>
+            <input type="text" name="price" size="10" maxlength="8" value="" id="price" />
+	</div>
+	  <button type="submit" class="btn btn-default">Creer Annonce</button>
+	</form>
+</div>
