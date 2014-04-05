@@ -67,11 +67,11 @@ public class JsonExtractor {
 			
 			ArrayList<String> values = _tree.get(parent);
 			if(values.contains(valueToRemove)){
-				System.out.println("Removed value " + valueToRemove + " from parent " + parent);
+				//System.out.println("Removed value " + valueToRemove + " from parent " + parent);
 				values.remove(valueToRemove);
 			}
 			if(values.isEmpty()){
-				System.out.println("Parent " + parent + " is empty and has been removed from tree");
+				//System.out.println("Parent " + parent + " is empty and has been removed from tree");
 				it.remove();
 			}
 		}

@@ -12,6 +12,10 @@ public class Index extends AbstractAction{
 	@Override
 	public String getRoute() {
 		return "^/$";
+		context.getVelocityContext().put("title", "Bienvenue sur LeBonCoinJ2E");
+
+		context.addCSSDependency(context.getProperties().get("context") + "/res/css/commun.css");
 	}
+
 
 }
