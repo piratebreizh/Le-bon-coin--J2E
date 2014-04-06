@@ -52,12 +52,15 @@ var global = this, loadMyLib = function(onloaded) {
 				method : 'POST',
 				data : data,
 				success : function(response) {
+					// Affichage du message
 					if (me.cfg.msgSuccess)
 						alert(me.cfg.msgSuccess);
+					else
+						alert(response);
+					// Redirection de la page
 					if (me.cfg.redirect)
 						$(location).attr('href', me.cfg.redirect);
 				}
-
 			})
 			e.preventDefault();
 			return false;

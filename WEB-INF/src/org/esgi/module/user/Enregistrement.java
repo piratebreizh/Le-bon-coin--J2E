@@ -13,11 +13,18 @@ public class Enregistrement extends AbstractAction {
 		user.setPassword(context.getRequest().getParameter("password"));
 		user.setNom(context.getRequest().getParameter("nom"));
 		user.setPrenom(context.getRequest().getParameter("prenom"));
-		ORM.save(user);
+		user = (User) ORM.save(user);
+		context.getVelocityContext().put("user", user);
 	}
 
 	@Override
 	public String getRoute() {
 		return "/user/enregistrement/";
 	}
+
+	@Override
+	public String getLayout() {
+		return "onlytext";
+	}
+	
 }

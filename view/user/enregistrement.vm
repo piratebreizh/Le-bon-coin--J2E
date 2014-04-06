@@ -1,0 +1,7 @@
+	#set ($user = $context.getProperties().get("user"))
+	#if( $user.getId() && $user.getId() > 0 )
+Le compte pour $user.getPrenom() $user.getNom().toUpperCase() a bien été créé.
+Vous allez être redirigé vers l'accueil.
+	#else
+Une erreur s'est produite lors de la création de votre compte. Veuillez réessayer ultérieurement.
+	#end

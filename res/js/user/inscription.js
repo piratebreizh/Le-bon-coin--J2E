@@ -7,7 +7,6 @@ $(function(){
 			url : APP_CONTEXT+'/user/enregistrement/',
 			renderTo : cfg.id,
 			redirect : APP_CONTEXT+'/index/',
-			msgSuccess : 'Votre compte a bien été créé. Vous allez être redirigé vers l\'accueil.',
 			inputs : [
 			          {
 			        	  type : "Text",

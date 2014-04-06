@@ -3,5 +3,4 @@
 
 #set ($js = $context.getProperties().get("context")+"/res/js/index/index.js")
 $context.addJSDependency($js)
-#set ($urlBase = $context.getProperties().get("context"))
 $context.addOnJsReady("new Esgi.module.index.Index({ id : '#container'})")
