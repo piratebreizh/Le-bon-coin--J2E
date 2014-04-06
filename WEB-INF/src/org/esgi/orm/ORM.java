@@ -21,6 +21,7 @@ public class ORM implements IORM {
 	private static final  String TYPE_FIELD_STRING = "char(50)"; 
 	private static final  String TYPE_FIELD_INT = "int"; 
 	private static final  String TYPE_FIELD_FLOAT = "float"; 
+	private static final  String TYPE_FIELD_DOUBLE = "float"; 
 	private static final  String TYPE_FIELD_BOOLEAN = "tinyint(1)"; 
 
 
@@ -48,7 +49,7 @@ public class ORM implements IORM {
 
 	@Override
 	public Object _load(Class clazz, Object id) {
-		System.out.println(" ----- Début LOAD ---- ");
+		System.out.println(" ----- Dï¿½but LOAD ---- ");
 		Object o = null;
 		try {			
 			o = clazz.newInstance();
@@ -58,7 +59,7 @@ public class ORM implements IORM {
 			if(null == nameTab)
 				return null;
 
-			//Récupération des champs de la table
+			//Rï¿½cupï¿½ration des champs de la table
 			ArrayList<Object[]> tabChamps = getAllField(clazz);
 
 			String listechamps = "";
@@ -72,7 +73,7 @@ public class ORM implements IORM {
 			listechamps = listechamps.substring(0,listechamps.length()-1);
 
 
-			//Préparation de la requête
+			//Prï¿½paration de la requï¿½te
 			String sql = "SELECT " + listechamps +" FROM "+ nameTab +" WHERE 1";
 			for(int i = 0 ; i<tabPK.size() ; i++)
 				sql += " AND "+ tabPK.get(i) + " = ?";
@@ -192,7 +193,7 @@ public class ORM implements IORM {
 				}
 			}
 			//System.out.println(mapPrimaryKey.);
-			// Si on possède des clé primaire non null alors UPDATE sinon INSERT
+			// Si on possï¿½de des clï¿½ primaire non null alors UPDATE sinon INSERT
 			if(mapPrimaryKey.size() > 0){
 				boolean flagPremierPassage = false;
 				String sqlClauseWhere =" WHERE ";
@@ -413,6 +414,8 @@ public class ORM implements IORM {
 				return TYPE_FIELD_BOOLEAN;
 			}else if (name.equals("Float") || name.equals("float")){
 				return TYPE_FIELD_FLOAT;
+			}else if (name.equals("Double") || name.equals("double")){
+				return TYPE_FIELD_DOUBLE;
 			}
 		}
 		return null;
