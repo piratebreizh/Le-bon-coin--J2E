@@ -11,6 +11,7 @@ public class CreationAnnonce extends AbstractAction {
 
 	public void execute(IContext context) throws Exception {
 		context.getVelocityContext().put("title", "Creation d'une annonce");
+		/*
 		//GESTION DES ERREURS DE SAISIES
 		int Erreur=0;
 		/*Integer region=Integer.parseInt(context.getRequest().getParameter("region"));
@@ -24,7 +25,7 @@ public class CreationAnnonce extends AbstractAction {
 		String subject=context.getRequest().getParameter("subject");
 		String body=context.getRequest().getParameter("body");
 		double price=double.parseDouble(context.getRequest().getParameter("price"));
-		*/
+		
 		Integer region=0;
 		String cp="";
 		Integer catego=0;
@@ -45,7 +46,7 @@ public class CreationAnnonce extends AbstractAction {
 		if (context.getRequest().getParameter("phone").matches("[0-9]*")) Erreur=6;
 		if (context.getRequest().getParameter("subject").length()<1) Erreur=7;
 		if (!isNumeric(context.getRequest().getParameter("price"))) Erreur=8;
-		*/
+		
 		switch (Erreur) {
 		//pas d'erreur
 		case 0:
@@ -84,7 +85,7 @@ public class CreationAnnonce extends AbstractAction {
 		case 8:
 			break;
 		}
-		
+		*/
 	}
 
 	public String getRoute() {

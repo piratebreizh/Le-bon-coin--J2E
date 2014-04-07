@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.velocity.app.Velocity;
 import org.esgi.module.annonce.CreationAnnonce;
-import org.esgi.module.annonce.RechercheAnnonce;
 import org.esgi.module.file.FileDelete;
 import org.esgi.module.file.FileDownload;
 import org.esgi.module.file.FileList;
@@ -75,7 +74,6 @@ public class FrontController extends HttpServlet{
 		registerAction(new Connect());
 
 		registerAction(new CreationAnnonce());
-		registerAction(new RechercheAnnonce());
 
 		registerAction(new Inscription());
 		registerAction(new Enregistrement());
