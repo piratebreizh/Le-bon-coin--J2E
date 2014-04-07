@@ -54,6 +54,10 @@ var global = this, loadMyLib = function(onloaded) {
 				success : function(response) {
 					if(me.cfg.msgSuccess)
 						alert(me.cfg.msgSuccess);
+					else if(me.cfg.resultTo)
+						$(me.cfg.resultTo).html(response);
+					else
+						alert(response);
 					if(me.cfg.redirect)
 						$(location).attr('href', me.cfg.redirect);
 				}

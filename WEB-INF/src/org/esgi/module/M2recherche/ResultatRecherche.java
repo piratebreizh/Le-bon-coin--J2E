@@ -46,6 +46,10 @@ public class ResultatRecherche extends AbstractAction{
 	public String getRoute() {
 		return "/resultatrecherche/";
 	}
-	
+
+	@Override
+	public String getLayout() {
+		return "onlytext";
+	}
 	
 }
