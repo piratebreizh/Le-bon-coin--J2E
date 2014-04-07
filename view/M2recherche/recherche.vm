@@ -1,0 +1,12 @@
+<div id="search_box">
+
+</div>
+
+<div style="margin-top: 10px;" id="result_box">
+
+</div>
+
+#set ($js = $context.getProperties().get("context")+"/res/js/M2recherche/recherche.js")
+$context.addJSDependency($js)
+
+$context.addOnJsReady("new Esgi.module.recherche.Form({ id : '#search_box', divResultID : '#result_box'})")

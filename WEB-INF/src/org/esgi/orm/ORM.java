@@ -41,14 +41,22 @@ public class ORM implements IORM {
 		return instance._load(clazz, id);
 	}
 
+	public static Object loadWithOutPrimaryKey(Class clazz, ORM_SEARCH_WITHOUT_PK critere) {
+		return instance._loadWithoutPrimaryKey(clazz, critere);
+	}
+	
 	public static boolean remove(Class clazz, Object id) {
 		return instance._remove(clazz, id);
 	}
 
 
 	@Override
+	/**
+	 * Permet le chargement d'un objet enregistrer en base via une seul clÃ© primaire
+	 * clazz = nom de la classe, id = clÃ© primaire 
+	 */
 	public Object _load(Class clazz, Object id) {
-		System.out.println(" ----- Début LOAD ---- ");
+		System.out.println(" ----- Dï¿½but LOAD ---- ");
 		Object o = null;
 		try {			
 			o = clazz.newInstance();
@@ -58,7 +66,7 @@ public class ORM implements IORM {
 			if(null == nameTab)
 				return null;
 
-			//Récupération des champs de la table
+			//Rï¿½cupï¿½ration des champs de la table
 			ArrayList<Object[]> tabChamps = getAllField(clazz);
 
 			String listechamps = "";
@@ -72,7 +80,7 @@ public class ORM implements IORM {
 			listechamps = listechamps.substring(0,listechamps.length()-1);
 
 
-			//Préparation de la requête
+			//Prï¿½paration de la requï¿½te
 			String sql = "SELECT " + listechamps +" FROM "+ nameTab +" WHERE 1";
 			for(int i = 0 ; i<tabPK.size() ; i++)
 				sql += " AND "+ tabPK.get(i) + " = ?";
@@ -112,6 +120,102 @@ public class ORM implements IORM {
 		return o;
 	}
 
+	/**
+	 * Permet le chargement d'une liste d'objets enregistrÃ©s en base sans connaÃ®tre ses clÃ©s primaires, 
+	 * Pour cela passer par une HasMap 
+	 * avec comme structure :
+	 * 		- KEY HASHMAP = COLLUM de la classe 
+	 * 		- VALUE HASMAP = VALEUR de critÃ¨re de selection de la requÃªte SQL
+	 */
+	public  ArrayList<Object> _loadWithoutPrimaryKey(Class clazz, ORM_SEARCH_WITHOUT_PK critere) {
+		System.out.println(" ----- DÃ©but LOAD WITOUT PRIMARY KEY ---- ");
+		
+		ArrayList<Object> listO =  new ArrayList<>();
+		
+		try {			
+		
+
+			String nameTab = getTableName(clazz);
+
+			if(null == nameTab)
+				return null;
+
+			//Rï¿½cupï¿½ration des champs de la table
+			ArrayList<Object[]> tabChamps = getAllField(clazz);
+
+			String listechamps = "";
+			
+			
+			ArrayList<String> tabPK = new ArrayList<String>();
+
+			for(Object[] chps : tabChamps){
+				listechamps += chps[1] + ",";
+				if(chps[2].toString().equals("PRIMARY_KEY"))
+					tabPK.add(chps[1].toString());
+			}
+			listechamps = listechamps.substring(0,listechamps.length()-1);
+			
+			
+			
+			
+			
+			//PrÃ©paration de la requÃªte
+			String sql = "SELECT " + listechamps +" FROM "+ nameTab +" WHERE ";
+			int i=0;
+			
+			ArrayList<String> tempValue = new ArrayList<>();
+			
+			for(Entry<String, String> entry : critere.getRecherche().entrySet()) {
+			    String cle = entry.getKey();
+			    tempValue.add(entry.getValue());
+			    
+			    if(i>0){
+			    	sql += " AND " + cle + " = ? ";
+			    }else{
+			    	sql += " " + cle + " = ? ";
+			    }
+			    i++;
+			}
+			
+			PreparedStatement stat = (PreparedStatement) this.connection.prepareStatement(sql) ;
+			
+			
+			for(i = 0 ; i<tempValue.size() ; i++){
+				stat.setString(i+1, tempValue.get(i));
+			}
+			
+			
+			ResultSet rs = (ResultSet) stat.executeQuery () ;
+
+			
+			Object tempO;
+			Field[] fields = clazz.getFields();
+			System.out.println("Liste retournÃ©e de la base :");
+			while (rs.next ())
+			{
+				tempO = clazz.newInstance();
+				for(Field f : fields){
+					if(f.getModifiers() == 1){
+						String nameField = namePackageToNamePropertie(f.getName());
+						f.set(tempO, rs.getObject(nameField));
+					}
+				}
+				System.out.println(tempO);
+				listO.add(tempO);
+			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(e.getCause());
+			e.printStackTrace();
+		}
+
+		return listO;
+	}
+
+	
+	
+	
 	@Override
 	public boolean _remove(Class clazz, Object id) {
 
@@ -192,7 +296,7 @@ public class ORM implements IORM {
 				}
 			}
 			//System.out.println(mapPrimaryKey.);
-			// Si on possède des clé primaire non null alors UPDATE sinon INSERT
+			// Si on possï¿½de des clï¿½ primaire non null alors UPDATE sinon INSERT
 			if(mapPrimaryKey.size() > 0){
 				boolean flagPremierPassage = false;
 				String sqlClauseWhere =" WHERE ";
@@ -303,7 +407,7 @@ public class ORM implements IORM {
 		try { Class.forName("com.mysql.jdbc.Driver").newInstance(); }
 		catch (Exception e) { e.printStackTrace(); }
 		try { 
-			this.connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/java2e","root","") ;
+			this.connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/java2e","root","root") ;
 		}
 		catch (SQLException e) { e.printStackTrace();}
 	}

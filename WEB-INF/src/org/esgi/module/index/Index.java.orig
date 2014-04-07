@@ -1,0 +1,23 @@
+package org.esgi.module.index;
+
+import org.esgi.web.action.AbstractAction;
+import org.esgi.web.action.IContext;
+
+public class Index extends AbstractAction{
+	
+	public void execute(IContext context) throws Exception {
+<<<<<<< HEAD
+		context.getVelocityContext().put("title", "index");
+		System.out.println("dede"+context.getRequest().getParameter("login"));
+=======
+		context.getVelocityContext().put("title", "Bienvenue sur LeBonCoinJ2E");
+
+		context.addCSSDependency(context.getProperties().get("context") + "/res/css/commun.css");
+>>>>>>> 106d21192e3e978e87828d43e0f13beecd571658
+	}
+	@Override
+	public String getRoute() {
+		return "/index/";
+	}
+
+}

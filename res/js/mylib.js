@@ -52,15 +52,14 @@ var global = this, loadMyLib = function(onloaded) {
 				method : 'POST',
 				data : data,
 				success : function(response) {
-					// Affichage du message
 					if (me.cfg.msgSuccess)
 						alert(me.cfg.msgSuccess);
-					else
-						alert(response);
-					// Redirection de la page
+					else if(me.cfg.resultTo)
+						$(me.cfg.resultTo).html(response);
 					if (me.cfg.redirect)
 						$(location).attr('href', me.cfg.redirect);
 				}
+
 			})
 			e.preventDefault();
 			return false;
@@ -129,7 +128,7 @@ var global = this, loadMyLib = function(onloaded) {
 	Esgi.html.link = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
-		me.el = $("<a href=\"" + cfg.href + "\">" + cfg.label + "</a>");
+		me.el = $("<a href=\"" + cfg.href + "\" class=\"" + cfg.classe + "\"\">" + cfg.label + "</a>");
 		this.init();
 	}
 	Esgi.html.link.prototype = {

@@ -6,12 +6,20 @@ $(function() {
 		new Esgi.html.link({
 			href : APP_CONTEXT + '/user/index/',
 			renderTo : cfg.id,
+			classe : 'lienMenu',
 			label : 'Accueil'
 		});
 		new Esgi.html.link({
 			href : APP_CONTEXT + '/user/espaceperso/',
 			renderTo : cfg.id,
+			classe : 'lienMenu',
 			label : 'Mon compte'
+		});
+		new Esgi.html.link({
+			href : APP_CONTEXT + '/recherche/',
+			renderTo : cfg.id,
+			classe : 'lienMenu',
+			label : 'Recherche'
 		});
 
 	}
