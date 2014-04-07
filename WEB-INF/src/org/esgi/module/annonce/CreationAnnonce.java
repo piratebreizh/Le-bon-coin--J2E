@@ -12,10 +12,10 @@ public class CreationAnnonce extends AbstractAction {
 	public void execute(IContext context) throws Exception {
 		context.getVelocityContext().put("title", "Creation d'une annonce");
 
-		/*
+	
 
 		context.addCSSDependency(context.getProperties().get("context")
-				+ "/res/css/commun.css");
+				+ "/res/css/commun.css");/*
 
 		//GESTION DES ERREURS DE SAISIES
 		int Erreur=0;
