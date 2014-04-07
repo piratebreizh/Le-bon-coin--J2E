@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.velocity.app.Velocity;
+import org.esgi.module.M2recherche.Recherche;
+import org.esgi.module.M2recherche.ResultatRecherche;
 import org.esgi.module.annonce.CreationAnnonce;
 import org.esgi.module.file.FileDelete;
 import org.esgi.module.file.FileDownload;
@@ -34,7 +36,6 @@ import org.esgi.web.route.Router;
  * chaque requete et peu contenir des filtres 
  * d'entree et de sortie pour chaque requete
  * exemple validateur de champs ou compression gzip.
- *
  */
 public class FrontController extends HttpServlet{
 
@@ -73,13 +74,19 @@ public class FrontController extends HttpServlet{
 		registerAction(new Index());
 		registerAction(new Connect());
 
+
 		registerAction(new CreationAnnonce());
+
 
 		registerAction(new Inscription());
 		registerAction(new Enregistrement());
 		registerAction(new Connexion());
 		registerAction(new EspacePerso());
+		registerAction(new CreationAnnonce());
+		//registerAction(new RechercheAnnonce());
 
+		registerAction(new Recherche());
+		registerAction(new ResultatRecherche());
 
 		layoutRender = new LayoutRenderer();
 	}

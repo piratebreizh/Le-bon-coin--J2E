@@ -4,14 +4,19 @@ import java.util.regex.Pattern;
 
 import org.esgi.web.action.AbstractAction;
 import org.esgi.web.action.IContext;
-import org.esgi.orm.my.ORM;
-import org.esgi.orm.my.model.Annonce;
+import org.esgi.orm.ORM;
+import org.esgi.orm.model.Annonce;
 
 public class CreationAnnonce extends AbstractAction {
 
 	public void execute(IContext context) throws Exception {
 		context.getVelocityContext().put("title", "Creation d'une annonce");
+
 		/*
+
+		context.addCSSDependency(context.getProperties().get("context")
+				+ "/res/css/commun.css");
+
 		//GESTION DES ERREURS DE SAISIES
 		int Erreur=0;
 		/*Integer region=Integer.parseInt(context.getRequest().getParameter("region"));
@@ -51,6 +56,7 @@ public class CreationAnnonce extends AbstractAction {
 		//pas d'erreur
 		case 0:
 			//Annonce a = new Annonce(region, cp, catego, company_ad, typeann, name, email, phone, subject, body, price);
+			
 			Annonce a = new Annonce();
 			a.setBody(body);
 			a.setCatego(catego);
