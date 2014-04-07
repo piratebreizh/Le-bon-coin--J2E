@@ -1,9 +1,12 @@
+
 footer {
-	background-color: blue;
 	color: red;
 	position: absolute;
 	bottom: 0px;
 	margin: 0 auto;
+	padding-top: 15px;
+	padding-bottom: 20px;
+	text-align: center;
 }
 
 body{
@@ -12,6 +15,10 @@ body{
 	background-color:#FFFFEB;
 	font-family:Verdana,"DejaVu Sans","Bitstream Vera Sans",Geneva,sans-serif;
 	font-size:12px;
+}
+
+a.lienMenu {
+	margin: 5px;
 }
 
 input,select,textarea{

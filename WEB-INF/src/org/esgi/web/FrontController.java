@@ -19,7 +19,9 @@ import org.esgi.module.file.FileList;
 import org.esgi.module.file.FileUpload;
 import org.esgi.module.index.Index;
 import org.esgi.module.user.Connect;
+import org.esgi.module.user.Connexion;
 import org.esgi.module.user.Enregistrement;
+import org.esgi.module.user.EspacePerso;
 import org.esgi.module.user.Inscription;
 import org.esgi.web.action.IAction;
 import org.esgi.web.action.IContext;
@@ -72,9 +74,10 @@ public class FrontController extends HttpServlet{
 		registerAction(new Connect());
 		registerAction(new Inscription());
 		registerAction(new Enregistrement());
+		registerAction(new Connexion());
+		registerAction(new EspacePerso());
 		registerAction(new Recherche());
 		registerAction(new ResultatRecherche());
-
 		layoutRender = new LayoutRenderer();
 	}
 	

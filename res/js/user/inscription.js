@@ -27,7 +27,7 @@ $(function(){
 			        	  type : "Text",
 			        	  name : 'login',
 			        	  id : 'login',
-			        	  label : "Login",
+			        	  label : "Adresse email",
 			        	  emptyText : 'Saisir votre login' 
 			          },{
 			        	  type : "Password",

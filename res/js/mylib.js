@@ -52,13 +52,11 @@ var global = this, loadMyLib = function(onloaded) {
 				method : 'POST',
 				data : data,
 				success : function(response) {
-					if(me.cfg.msgSuccess)
+					if (me.cfg.msgSuccess)
 						alert(me.cfg.msgSuccess);
 					else if(me.cfg.resultTo)
 						$(me.cfg.resultTo).html(response);
-					else
-						alert(response);
-					if(me.cfg.redirect)
+					if (me.cfg.redirect)
 						$(location).attr('href', me.cfg.redirect);
 				}
 
@@ -75,8 +73,10 @@ var global = this, loadMyLib = function(onloaded) {
 	var commons = {
 		init : function() {
 			var me = this;
-			if(me.cfg.label != undefined)
-				$("<label for=\""+me.cfg.id+"\">"+me.cfg.label+" :&nbsp;</label>").appendTo(me.cfg.renderTo);
+			if (me.cfg.label != undefined)
+				$(
+						"<label for=\"" + me.cfg.id + "\">" + me.cfg.label
+								+ " :&nbsp;</label>").appendTo(me.cfg.renderTo);
 			$(me.cfg.renderTo).appendTo(me.cfg.renderTo);
 			$(me.cfg.renderTo).append(me.el);
 		},
@@ -89,7 +89,8 @@ var global = this, loadMyLib = function(onloaded) {
 	Esgi.html.inputs.Text = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
-		me.el = $("<input name=\""+cfg.name+"\" id=\""+cfg.id+"\" /><br/>");
+		me.el = $("<input name=\"" + cfg.name + "\" id=\"" + cfg.id
+				+ "\" /><br/>");
 		this.init();
 
 	}
@@ -99,18 +100,22 @@ var global = this, loadMyLib = function(onloaded) {
 	Esgi.html.inputs.Password = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
-		me.el = $("<input name=\""+cfg.name+"\" id=\""+cfg.id+"\" type='password'/><br/>");
+		me.el = $("<input name=\"" + cfg.name + "\" id=\"" + cfg.id
+				+ "\" type='password'/><br/>");
 		this.init();
 	}
-	
+
 	Esgi.html.inputs.Password.prototype = commons;
 
 	Esgi.html.inputs.Select = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
-		me.el = $("<select name=\""+cfg.name+"\" id=\""+cfg.id+"\">");
-		for(var val in cfg.options) {
-		    $("<option />", {value: val, text: cfg.options[val]}).appendTo(me.el );
+		me.el = $("<select name=\"" + cfg.name + "\" id=\"" + cfg.id + "\">");
+		for ( var val in cfg.options) {
+			$("<option />", {
+				value : val,
+				text : cfg.options[val]
+			}).appendTo(me.el);
 		}
 		me.init();
 
@@ -123,15 +128,15 @@ var global = this, loadMyLib = function(onloaded) {
 	Esgi.html.link = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
-		me.el = $("<a href=\""+cfg.href+"\">"+cfg.label+"</a>");
+		me.el = $("<a href=\"" + cfg.href + "\" class=\"" + cfg.classe + "\"\">" + cfg.label + "</a>");
 		this.init();
 	}
 	Esgi.html.link.prototype = {
-			init : function() {
-				var me = this;
-				$(me.cfg.renderTo).append(me.el);
-			}
-		};
+		init : function() {
+			var me = this;
+			$(me.cfg.renderTo).append(me.el);
+		}
+	};
 }
 
 $(loadMyLib);

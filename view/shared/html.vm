@@ -30,7 +30,9 @@
   </head>
   <body>
 $context.getFragment("shared/main_header")
+  	<div id="mainContainer">
 $context.getFragment("__CURRENT__")
+	</div>
 $context.getFragment("shared/main_footer")
    
    <script>
@@ -58,6 +60,5 @@ $(function(){
 	#end
 });
 </script>
-
   </body>
 </html>

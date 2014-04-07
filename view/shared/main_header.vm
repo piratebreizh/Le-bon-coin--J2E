@@ -1,6 +1,12 @@
 <div class="container">
 <header class="row">
 <div class="col-md-12">
-	<h1>$title</h1>
+	<h1>LeBonCoinJ2E - $title</h1>
 </div>
+<div id="menuPrincipal"></div>
 </header>
+
+#set ($js = $context.getProperties().get("context")+"/res/js/shared/menuPrincipal.js")
+$context.addJSDependency($js)
+		
+$context.addOnJsReady("new Esgi.module.shared.MenuPrincipal({ id : '#menuPrincipal'})")
