@@ -9,12 +9,10 @@ import org.esgi.web.action.IContext;
 public class Recherche extends AbstractAction{
 	
 	public void execute(IContext context) throws Exception {
-		context.getVelocityContext().put("title", "Recherche");
-		
-		System.out.println("nomm recherche : " + context.getRequest().getParameter("nomRecherche"));
-		
-		context.getVelocityContext().put("title", context.getRequest().getParameter("nomRecherche"));
-		
+		context.getVelocityContext().put("title", "Recherche");		
+		//context.getVelocityContext().put("title", context.getRequest().getParameter("nomRecherche"));
+		context.addCSSDependency(context.getProperties().get("context") + "/res/css/commun.css");
+	
 	}
 	@Override
 	public String getRoute() {

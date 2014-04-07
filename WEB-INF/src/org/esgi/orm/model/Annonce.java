@@ -1,18 +1,19 @@
 package org.esgi.orm.model;
 
+import org.esgi.orm.annotations.ORM_PK;
 import org.esgi.orm.annotations.ORM_SCHEMA;
 import org.esgi.orm.annotations.ORM_TABLE;
 
 @ORM_SCHEMA("esgi")
-@ORM_TABLE("user")
+@ORM_TABLE("annonce")
 public class Annonce {
 
-	
+	@ORM_PK
 	public int numero;
 	public String titre;
 	public String description;
 	//Voir pour la gestion des clés étrangères dans l'ORM
-	public User user;
+	//public User user;
 	public String ville;
 	public String categorie;
 
@@ -24,7 +25,7 @@ public class Annonce {
 		this.numero = numero;
 		this.titre = titre;
 		this.description = description;
-		this.user = user;
+		//this.user = user;
 		this.ville = ville;
 		this.categorie = catregorie;
 	}
@@ -61,12 +62,12 @@ public class Annonce {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public User getUser() {
+	/*public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 	public String getVille() {
 		return ville;
 	}
@@ -84,7 +85,7 @@ public class Annonce {
 	@Override
 	public String toString() {
 		return "Annonce [numero=" + numero + ", titre=" + titre
-				+ ", description=" + description + ", user=" + user
+				+ ", description=" + description + ", user=" 
 				+ ", ville=" + ville + ", catregorie=" + categorie + "]";
 	}
 	

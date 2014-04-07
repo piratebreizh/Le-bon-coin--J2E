@@ -21,7 +21,7 @@ $(function(){
 			        	  type : "Select",
 			        	  label : "ville",
 			        	  name : 'ville',
-			        	  options : {idf : 'Ile de France',bretagne : 'Bretagne'}
+			        	  options : {idf : 'Ile de France',bretagne : 'Bretagne', alsace : 'Alsace', aquitaine : 'Aquitaine', auvergne : 'Auverge'}
 			          }
 			          ]
 		});

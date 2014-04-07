@@ -14,12 +14,12 @@ public class ResultatRecherche extends AbstractAction{
 	public void execute(IContext context) throws Exception {
 		
 		context.getVelocityContext().put("title", "Résultat de la recherche");
-		
+
 		ORM_SEARCH_WITHOUT_PK critere = new ORM_SEARCH_WITHOUT_PK();
 		
 		String titreRecherche = "", villeRecherche = "", categorieRecherche = "";
 		
-		if(context.getRequest().getParameter("nomRecherche") != null){
+		if(context.getRequest().getParameter("nomRecherche") != null && !context.getRequest().getParameter("nomRecherche").equals("")){
 			titreRecherche =  context.getRequest().getParameter("nomRecherche");
 			critere.addConstrainte("titre", titreRecherche);
 		}
@@ -34,11 +34,12 @@ public class ResultatRecherche extends AbstractAction{
 			critere.addConstrainte("ville", villeRecherche);
 		}
 		
-		ArrayList<Annonce> listeResultatAnnonce = new ArrayList<>();
 
+		ArrayList<Annonce> listeResultatAnnonce = new ArrayList<>();
 		
 		listeResultatAnnonce = (ArrayList<Annonce>) ORM.loadWithOutPrimaryKey(Annonce.class, critere);
-	
+		
+
 	}
 	
 	@Override

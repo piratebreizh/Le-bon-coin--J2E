@@ -129,9 +129,11 @@ public class ORM implements IORM {
 	 */
 	public  ArrayList<Object> _loadWithoutPrimaryKey(Class clazz, ORM_SEARCH_WITHOUT_PK critere) {
 		System.out.println(" ----- Début LOAD WITOUT PRIMARY KEY ---- ");
-		Object o = null;
+		
+		ArrayList<Object> listO =  new ArrayList<>();
+		
 		try {			
-			o = clazz.newInstance();
+		
 
 			String nameTab = getTableName(clazz);
 
@@ -144,76 +146,71 @@ public class ORM implements IORM {
 			String listechamps = "";
 			
 			
-			
 			ArrayList<String> tabPK = new ArrayList<String>();
 
-			/*for(Object[] chps : tabChamps){
+			for(Object[] chps : tabChamps){
 				listechamps += chps[1] + ",";
 				if(chps[2].toString().equals("PRIMARY_KEY"))
 					tabPK.add(chps[1].toString());
 			}
 			listechamps = listechamps.substring(0,listechamps.length()-1);
-			*/
 			
 			
 			
 			
 			
 			//Préparation de la requête
-			String sql = "SELECT " + listechamps +" FROM "+ nameTab +" WHERE 1";
+			String sql = "SELECT " + listechamps +" FROM "+ nameTab +" WHERE ";
 			int i=0;
+			
+			ArrayList<String> tempValue = new ArrayList<>();
 			
 			for(Entry<String, String> entry : critere.getRecherche().entrySet()) {
 			    String cle = entry.getKey();
-			    String valeur = entry.getValue();
-			    sql += " " + cle + " = ? ";
+			    tempValue.add(entry.getValue());
+			    
 			    if(i>0){
 			    	sql += " AND " + cle + " = ? ";
+			    }else{
+			    	sql += " " + cle + " = ? ";
 			    }
 			    i++;
 			}
 			
-		
-			
-
-			
-			
-			for(int i = 0 ; i<tabPK.size() ; i++)
-				sql += " AND "+ tabPK.get(i) + " = ?";
-
 			PreparedStatement stat = (PreparedStatement) this.connection.prepareStatement(sql) ;
-			int n = 1;  
-
-		/*	if (!(id instanceof HashMap)){
-				stat.setString(n++, id.toString());
-			}else{
-				HashMap<String, Object> ids = (HashMap<String, Object>)id;
-				for(String PKStr : tabPK){
-					if(null != ids.get(PKStr)){
-						stat.setString(n++, ids.get(PKStr).toString());
-					}
-				}
-			}*/
-
+			
+			
+			for(i = 0 ; i<tempValue.size() ; i++){
+				stat.setString(i+1, tempValue.get(i));
+			}
+			
 			
 			ResultSet rs = (ResultSet) stat.executeQuery () ;
 
+			
+			Object tempO;
 			Field[] fields = clazz.getFields();
+			System.out.println("Liste retournée de la base :");
 			while (rs.next ())
 			{
+				tempO = clazz.newInstance();
 				for(Field f : fields){
 					if(f.getModifiers() == 1){
 						String nameField = namePackageToNamePropertie(f.getName());
-						f.set(o, rs.getObject(nameField));
+						f.set(tempO, rs.getObject(nameField));
 					}
 				}
+				System.out.println(tempO);
+				listO.add(tempO);
 			}
 
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(e.getCause());
 			e.printStackTrace();
 		}
 
-		return (ArrayList<Object>) o;
+		return listO;
 	}
 
 	

@@ -4,6 +4,11 @@ $context.setPageTitle("Welcome")
 
 </div>
 
+
+<div id="search_box">
+
+</div>
+
 #set ($js = $context.getProperties().get("context")+"/res/js/M2recherche/recherche.js")
 $context.addJSDependency($js)
 
@@ -15,4 +20,4 @@ $context.addJSDependency($js)
 
 
 
-$context.addOnJsReady("new Esgi.module.user.Connect({ id : '#container'})")
+$context.addOnJsReady("new Esgi.module.user.Connect({ id : '#search_box'})")
