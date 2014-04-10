@@ -4,7 +4,7 @@ $(function() {
 
 	Esgi.module.shared.MenuPrincipal = function(cfg) {
 		new Esgi.html.link({
-			href : APP_CONTEXT + '/user/index/',
+			href : APP_CONTEXT + '/index/',
 			renderTo : cfg.id,
 			classe : 'lienMenu',
 			label : 'Accueil'
@@ -20,6 +20,12 @@ $(function() {
 			renderTo : cfg.id,
 			classe : 'lienMenu',
 			label : 'Recherche'
+		});
+		new Esgi.html.link({
+			href : APP_CONTEXT + '/annonce/creation/',
+			renderTo : cfg.id,
+			classe : 'lienMenu',
+			label : 'Déposer une annonce'
 		});
 
 	}

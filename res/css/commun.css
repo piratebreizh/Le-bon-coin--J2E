@@ -1,7 +1,6 @@
 
 footer {
 	color: red;
-	position: absolute;
 	bottom: 0px;
 	margin: 0 auto;
 	padding-top: 15px;
@@ -25,6 +24,11 @@ input,select,textarea{
 	font-family:Verdana,"DejaVu Sans","Bitstream Vera Sans",Geneva,sans-serif;
 	font-size:12px;
 }
+
+label{
+	width: 130px;
+}
+
 
 .page_align{
 	height:auto;

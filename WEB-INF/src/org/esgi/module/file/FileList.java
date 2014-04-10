@@ -18,7 +18,7 @@ public class FileList extends AbstractAction {
 	
 			File currentDir = new File(repo, path);
 			if(currentDir.exists() && currentDir.isDirectory()){
-				context.setDescription("Liste des fichiers du r��pertoire "+ path);
+				context.setDescription("Liste des fichiers du repertoire "+ path);
 				context.addKeyword("fichier");
 				context.addKeyword("dossier");
 				context.getVelocityContext().put("title", repo + path);

@@ -79,6 +79,8 @@ var global = this, loadMyLib = function(onloaded) {
 								+ " :&nbsp;</label>").appendTo(me.cfg.renderTo);
 			$(me.cfg.renderTo).appendTo(me.cfg.renderTo);
 			$(me.cfg.renderTo).append(me.el);
+			$(me.cfg.renderTo).append("<br/>");
+			
 		},
 		getValue : function() {
 			return $(this.el).val();
@@ -90,22 +92,39 @@ var global = this, loadMyLib = function(onloaded) {
 		var me = this;
 		me.cfg = cfg;
 		me.el = $("<input name=\"" + cfg.name + "\" id=\"" + cfg.id
-				+ "\" /><br/>");
+				+ "\" />");
 		this.init();
 
 	}
-
 	Esgi.html.inputs.Text.prototype = commons;
+	
+	Esgi.html.inputs.TextArea = function(cfg) {
+		var me = this;
+		me.cfg = cfg;
+		me.el = $("<textarea name=\"" + cfg.name + "\" id=\"" + cfg.id
+				+ "\" />");
+		this.init();
+
+	}
+	Esgi.html.inputs.TextArea.prototype = commons;
 
 	Esgi.html.inputs.Password = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
 		me.el = $("<input name=\"" + cfg.name + "\" id=\"" + cfg.id
-				+ "\" type='password'/><br/>");
+				+ "\" type='password'/>");
 		this.init();
 	}
-
 	Esgi.html.inputs.Password.prototype = commons;
+	
+	Esgi.html.inputs.Radio = function(cfg) {
+		var me = this;
+		me.cfg = cfg;
+		me.el = $("<input name=\"" + cfg.name + "\" id=\"" + cfg.id
+				+ "\" type='radio'/>");
+		this.init();
+	}
+	Esgi.html.inputs.Radio.prototype = commons;
 
 	Esgi.html.inputs.Select = function(cfg) {
 		var me = this;

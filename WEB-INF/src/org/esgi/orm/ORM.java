@@ -21,6 +21,7 @@ public class ORM implements IORM {
 	private static final  String TYPE_FIELD_STRING = "char(50)"; 
 	private static final  String TYPE_FIELD_INT = "int"; 
 	private static final  String TYPE_FIELD_FLOAT = "float"; 
+	private static final  String TYPE_FIELD_DOUBLE = "float"; 
 	private static final  String TYPE_FIELD_BOOLEAN = "tinyint(1)"; 
 
 
@@ -517,6 +518,8 @@ public class ORM implements IORM {
 				return TYPE_FIELD_BOOLEAN;
 			}else if (name.equals("Float") || name.equals("float")){
 				return TYPE_FIELD_FLOAT;
+			}else if (name.equals("Double") || name.equals("double")){
+				return TYPE_FIELD_DOUBLE;
 			}
 		}
 		return null;

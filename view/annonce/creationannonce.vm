@@ -1,0 +1,7 @@
+<div id="formCreationAnnonce">
+</div>
+
+#set ($js = $context.getProperties().get("context")+"/res/js/annonce/creation.js")
+$context.addJSDependency($js)
+		
+$context.addOnJsReady("new Esgi.module.annonce.CreationAnnonce({ id : '#formCreationAnnonce'})")
