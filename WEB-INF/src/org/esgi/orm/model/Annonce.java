@@ -14,19 +14,57 @@ public class Annonce {
 	public String description;
 	//Voir pour la gestion des clés étrangères dans l'ORM
 	//public User user;
-	public String ville;
+	public String cp;
+	public String region;
+	public String getRegion() {
+		return region;
+	}
+
+
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+
 	public String categorie;
+	public String Email;
+	public double Prix;
 
 	
 	
+	public double getPrix() {
+		return Prix;
+	}
+
+
+
+	public void setPrix(double prix) {
+		Prix = prix;
+	}
+
+
+
+	public String getEmail() {
+		return Email;
+	}
+
+
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+
+
 	public Annonce(int numero, String titre, String description, User user,
-			String ville, String catregorie) {
+			String cp, String catregorie) {
 		super();
 		this.numero = numero;
 		this.titre = titre;
 		this.description = description;
 		//this.user = user;
-		this.ville = ville;
+		this.cp = cp;
 		this.categorie = catregorie;
 	}
 	
@@ -35,7 +73,7 @@ public class Annonce {
 	public Annonce(String titre, String ville, String catregorie) {
 		super();
 		this.titre = titre;
-		this.ville = ville;
+		this.cp = ville;
 		this.categorie = catregorie;
 	}
 
@@ -68,11 +106,11 @@ public class Annonce {
 	public void setUser(User user) {
 		this.user = user;
 	}*/
-	public String getVille() {
-		return ville;
+	public String getcp() {
+		return cp;
 	}
-	public void setVille(String ville) {
-		this.ville = ville;
+	public void setcp(String cp) {
+		this.cp = cp;
 	}
 	public String getCatregorie() {
 		return categorie;
@@ -86,7 +124,7 @@ public class Annonce {
 	public String toString() {
 		return "Annonce [numero=" + numero + ", titre=" + titre
 				+ ", description=" + description + ", user=" 
-				+ ", ville=" + ville + ", catregorie=" + categorie + "]";
+				+ ", ville=" + cp + ", catregorie=" + categorie + "]";
 	}
 	
 	
