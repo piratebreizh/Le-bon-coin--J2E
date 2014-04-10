@@ -1,10 +1,14 @@
 <div class="container">
-<header class="row">
-<div class="col-md-12">
-	<h1>LeBonCoinJ2E - $title</h1>
-</div>
-<div id="menuPrincipal"></div>
-</header>
+	<header id="headermain">
+	    <a href=""><img src="http://static.leboncoin.fr/img/logo_25.png" 
+	    title="LeBonCoinJ2E" alt="LeBonCoinJ2E" id="header_logo"></a>
+	    <h1><br>$title</h1>
+	</header>
+	<nav>
+		<ul id="nav_main" class="navmain">
+			<div id="menuPrincipal"></div>
+		</ul>
+	</nav>
 
 #set ($js = $context.getProperties().get("context")+"/res/js/shared/menuPrincipal.js")
 $context.addJSDependency($js)
