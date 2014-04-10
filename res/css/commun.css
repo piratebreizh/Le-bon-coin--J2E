@@ -25,6 +25,11 @@ input,select,textarea{
 	font-size:12px;
 }
 
+label{
+	width: 130px;
+}
+
+
 .page_align{
 	height:auto;
 	min-height:100%;

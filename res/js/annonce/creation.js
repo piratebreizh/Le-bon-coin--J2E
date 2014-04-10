@@ -116,8 +116,8 @@ $(function(){
 							Autres : ' Autres'
 			        	  }
 			          },
-			          /*{
-			        	  type : "radio",
+			          {
+			        	  type : "Radio",
 			        	  name : 'company_ad',
 			        	  id : 'private_ad_id',
 			        	  label : "Particulier",
@@ -125,13 +125,13 @@ $(function(){
 			        	  checked : "checked"
 			          },
 			          {
-			        	  type : "radio",
+			        	  type : "Radio",
 			        	  name : 'company_ad',
 			        	  id : 'private_ad_id',
 			        	  label : "Professionnel",
 			        	  value : "1"
 			          }, {
-			        	  type : "radio",
+			        	  type : "Radio",
 			        	  name : 'typeann',
 			        	  id : 'offre',
 			        	  label : "Offre",
@@ -139,12 +139,12 @@ $(function(){
 			        	  checked : "checked"
 			          },
 			          {
-			        	  type : "radio",
+			        	  type : "Radio",
 			        	  name : 'typeann',
 			        	  id : 'demande',
 			        	  label : "Demande",
 			        	  value : "1"
-			          },*/
+			          },
 			          {
 			        	  type : "Text",
 			        	  name : 'name',
