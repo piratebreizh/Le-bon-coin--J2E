@@ -25,11 +25,6 @@ input,select,textarea{
 	font-size:12px;
 }
 
-label{
-	width: 130px;
-}
-
-
 .page_align{
 	height:auto;
 	min-height:100%;
@@ -246,7 +241,6 @@ div#account_login{
 	position:absolute;
 	top:0;
 	right:5px;
-	height:35px;
 	background:none no-repeat scroll 0 0 #3F3F44;
 	border-radius:0 0 7px 7px;
 	-moz-border-radius:0 0 7px 7px;
@@ -418,7 +412,6 @@ div#account_creditinfo ul li a{
 .form_container{
 	position:relative;
 	width:433px;
-	height:23px;
 }
 
 #account_login_form,#pass_lost_form{

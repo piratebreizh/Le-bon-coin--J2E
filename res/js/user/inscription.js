@@ -4,7 +4,7 @@ $(function(){
 
 	Esgi.module.user.Inscription = function (cfg) {
 		new Esgi.html.Form({
-			url : APP_CONTEXT+'/index/',
+			url : APP_CONTEXT+'/user/enregistrement/',
 			renderTo : cfg.id,
 			redirect : APP_CONTEXT+'/index/',
 			inputs : [
