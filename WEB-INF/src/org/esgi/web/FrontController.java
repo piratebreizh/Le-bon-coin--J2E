@@ -100,7 +100,11 @@ public class FrontController extends HttpServlet{
 
 		String url = request.getPathInfo();
 		IContext context = createContext(request, response);
-		System.out.println(url);
+
+		if(url == null || url.equals("/")){
+			url = "/index/";
+		}
+		
 		if(url.equals("/user/logout/")){
 			System.out.println("deco");
 			HttpSession session = request.getSession();
