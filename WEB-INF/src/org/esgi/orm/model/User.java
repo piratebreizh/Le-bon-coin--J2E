@@ -16,6 +16,7 @@ public class User{
 	public String password;
 	public String nom;
 	public String prenom;
+	public String adresseMail;
 	public volatile Date connectedAt;
 
 	
@@ -28,6 +29,17 @@ public class User{
 	//	this.connectedAt = new java.util.Date();
 	}
 	
+
+	public User(Integer id, String login, String password, String nom,
+			String prenom) {
+		super();
+		this.id = id;
+		this.login = login;
+		this.password = password;
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -68,6 +80,15 @@ public class User{
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+	
+	public String getAdresseMail() {
+		return adresseMail;
+	}
+
+	public void setAdresseMail(String adresseMail) {
+		this.adresseMail = adresseMail;
+	}
+
 
 	@Override
 	public String toString() {

@@ -1,5 +1,51 @@
-$context.setPageTitle("Welcome")
 
-<div id="container">
-TEST resultat recherche
+<div class="list-lbc">
+#foreach( $customer in $listeRecherche )
+<a title="test" href="http://localhost:8080/Le-bon-coin--J2E/AnnonceEnDetail/?idAnnonce=$customer.Numero">
+    <div class="lbc">
+        <div class="date">
+            <div>
+
+                Aujourd'hui
+
+            </div>
+            <div>
+
+                16:24
+
+            </div>
+        </div>
+        <div class="image">
+            <div class="image-and-nb">
+                <img alt="Magnetics Diset 63260 - 4 kits magnétiques" src="http://193.164.196.30/thumbs/685/685408039943320.jpg"></img>
+                <div class="nb">
+                    <div class="top radius"></div>
+                    <div class="value radius"></div>
+                </div>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="title">
+				$customer.Titre
+            </div>
+            <div class="category">
+				$customer.Categorie
+            </div>
+            <div class="placement">
+            	$customer.Ville
+            </div>
+            <div class="price">
+				$customer.Prix
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</a>
+<div class="clear"></div>
+#end
 </div>
+
+
+
+

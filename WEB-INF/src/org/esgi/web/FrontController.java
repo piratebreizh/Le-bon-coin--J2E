@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.velocity.app.Velocity;
+import org.esgi.module.M2recherche.AnnonceEnDetail;
 import org.esgi.module.M2recherche.Recherche;
 import org.esgi.module.M2recherche.ResultatRecherche;
 import org.esgi.module.annonce.CreationAnnonce;
@@ -66,11 +67,11 @@ public class FrontController extends HttpServlet{
 		Properties configVelocity = new Properties();
 		configVelocity.setProperty("file.resource.loader.path", config.getServletContext().getRealPath("/") + properties.getProperty("template.path")+ "/");
 		Velocity.init(configVelocity);
-/*
+
 		registerAction(new FileList());
 		registerAction(new FileDownload());
 		registerAction(new FileUpload());
-		registerAction(new FileDelete());*/
+		registerAction(new FileDelete());
 		registerAction(new Index());
 		registerAction(new Connect());
 
@@ -87,7 +88,7 @@ public class FrontController extends HttpServlet{
 
 		registerAction(new Recherche());
 		registerAction(new ResultatRecherche());
-
+		registerAction(new AnnonceEnDetail());
 		layoutRender = new LayoutRenderer();
 	}
 	

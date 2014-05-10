@@ -21,7 +21,6 @@ public class ORM implements IORM {
 	private static final  String TYPE_FIELD_STRING = "char(50)"; 
 	private static final  String TYPE_FIELD_INT = "int"; 
 	private static final  String TYPE_FIELD_FLOAT = "float"; 
-	private static final  String TYPE_FIELD_DOUBLE = "float"; 
 	private static final  String TYPE_FIELD_BOOLEAN = "tinyint(1)"; 
 
 
@@ -82,10 +81,15 @@ public class ORM implements IORM {
 
 
 			//Pr�paration de la requ�te
-			String sql = "SELECT " + listechamps +" FROM "+ nameTab +" WHERE 1";
-			for(int i = 0 ; i<tabPK.size() ; i++)
-				sql += " AND "+ tabPK.get(i) + " = ?";
-
+			String sql = "SELECT " + listechamps +" FROM "+ nameTab +" WHERE";
+			for(int i = 0 ; i<tabPK.size() ; i++){
+				if(i==0){
+					sql += " "+ tabPK.get(i) + " = ?";
+				}else{
+					sql += " AND "+ tabPK.get(i) + " = ?";	
+				}
+				
+			}
 			PreparedStatement stat = (PreparedStatement) this.connection.prepareStatement(sql) ;
 			int n = 1;  
 
@@ -162,6 +166,7 @@ public class ORM implements IORM {
 			
 			//Préparation de la requête
 			String sql = "SELECT " + listechamps +" FROM "+ nameTab +" WHERE ";
+			System.out.println(sql);
 			int i=0;
 			
 			ArrayList<String> tempValue = new ArrayList<>();
@@ -177,7 +182,7 @@ public class ORM implements IORM {
 			    }
 			    i++;
 			}
-			
+						
 			PreparedStatement stat = (PreparedStatement) this.connection.prepareStatement(sql) ;
 			
 			
@@ -518,8 +523,6 @@ public class ORM implements IORM {
 				return TYPE_FIELD_BOOLEAN;
 			}else if (name.equals("Float") || name.equals("float")){
 				return TYPE_FIELD_FLOAT;
-			}else if (name.equals("Double") || name.equals("double")){
-				return TYPE_FIELD_DOUBLE;
 			}
 		}
 		return null;
