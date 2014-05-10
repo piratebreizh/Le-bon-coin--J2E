@@ -1,8 +1,12 @@
 package org.esgi.orm.model;
 
+import java.sql.Date;
+
 import org.esgi.orm.annotations.ORM_PK;
 import org.esgi.orm.annotations.ORM_SCHEMA;
 import org.esgi.orm.annotations.ORM_TABLE;
+
+
 
 @ORM_SCHEMA("esgi")
 @ORM_TABLE("annonce")
@@ -13,58 +17,128 @@ public class Annonce {
 	public String titre;
 	public String description;
 	//Voir pour la gestion des clés étrangères dans l'ORM
-	//public User user;
-	public String cp;
-	public String region;
-	public String getRegion() {
-		return region;
-	}
-
-
-
-	public void setRegion(String region) {
-		this.region = region;
-	}
-
-
+	public int user;
+	public String ville;
 	public String categorie;
-	public String Email;
-	public double Prix;
+	public String photo1;
+	public String photo2;
+	public String photo3;
+	public String photo4;
+	public double prix;
+	public Date dateCreation;
+	
+	
+	public Date getDateCreation() {
+		return dateCreation;
+	}
 
-	
-	
+	public void setDateCreation(Date dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+
+
+	public String getDateToString(){
+		return this.dateCreation.toString();
+	}
+
+	public Annonce(int numero, String titre, String description, String ville,
+			String categorie, String photo1, String photo2, String photo3,
+			String photo4, double prix) {
+		super();
+		this.numero = numero;
+		this.titre = titre;
+		this.description = description;
+		this.ville = ville;
+		this.categorie = categorie;
+		this.photo1 = photo1;
+		this.photo2 = photo2;
+		this.photo3 = photo3;
+		this.photo4 = photo4;
+		this.prix = prix;
+	}
+
+
+
+	public String getCategorie() {
+		return categorie;
+	}
+
+
+
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
+	}
+
+
+
+	public String getPhoto1() {
+		return photo1;
+	}
+
+
+
+	public void setPhoto1(String photo1) {
+		this.photo1 = photo1;
+	}
+
+
+
+	public String getPhoto2() {
+		return photo2;
+	}
+
+
+
+	public void setPhoto2(String photo2) {
+		this.photo2 = photo2;
+	}
+
+
+
+	public String getPhoto3() {
+		return photo3;
+	}
+
+
+
+	public void setPhoto3(String photo3) {
+		this.photo3 = photo3;
+	}
+
+
+
+	public String getPhoto4() {
+		return photo4;
+	}
+
+
+
+	public void setPhoto4(String photo4) {
+		this.photo4 = photo4;
+	}
+
+
+
 	public double getPrix() {
-		return Prix;
+		return prix;
 	}
 
 
 
 	public void setPrix(double prix) {
-		Prix = prix;
-	}
-
-
-
-	public String getEmail() {
-		return Email;
-	}
-
-
-
-	public void setEmail(String email) {
-		Email = email;
+		this.prix = prix;
 	}
 
 
 
 	public Annonce(int numero, String titre, String description, User user,
-			String cp, String catregorie) {
+			String ville, String catregorie) {
 		super();
 		this.numero = numero;
 		this.titre = titre;
 		this.description = description;
 		//this.user = user;
-		this.cp = cp;
+		this.ville = ville;
 		this.categorie = catregorie;
 	}
 	
@@ -73,7 +147,7 @@ public class Annonce {
 	public Annonce(String titre, String ville, String catregorie) {
 		super();
 		this.titre = titre;
-		this.cp = ville;
+		this.ville = ville;
 		this.categorie = catregorie;
 	}
 
@@ -106,11 +180,11 @@ public class Annonce {
 	public void setUser(User user) {
 		this.user = user;
 	}*/
-	public String getcp() {
-		return cp;
+	public String getVille() {
+		return ville;
 	}
-	public void setcp(String cp) {
-		this.cp = cp;
+	public void setVille(String ville) {
+		this.ville = ville;
 	}
 	public String getCatregorie() {
 		return categorie;
@@ -123,10 +197,20 @@ public class Annonce {
 	@Override
 	public String toString() {
 		return "Annonce [numero=" + numero + ", titre=" + titre
-				+ ", description=" + description + ", user=" 
-				+ ", ville=" + cp + ", catregorie=" + categorie + "]";
+				+ ", description=" + description + ", ville=" + ville
+				+ ", categorie=" + categorie + ", photo1=" + photo1
+				+ ", photo2=" + photo2 + ", photo3=" + photo3 + ", photo4="
+				+ photo4 + ", prix=" + prix + "]";
 	}
 	
+	
+	public int getUser() {
+		return user;
+	}
+
+	public void setUser(int user) {
+		this.user = user;
+	}
 	
 	
 	

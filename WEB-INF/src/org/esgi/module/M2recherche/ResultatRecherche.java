@@ -14,7 +14,9 @@ public class ResultatRecherche extends AbstractAction{
 	public void execute(IContext context) throws Exception {
 		
 		context.getVelocityContext().put("title", "Résultat de la recherche");
-
+		
+		
+		
 		ORM_SEARCH_WITHOUT_PK critere = new ORM_SEARCH_WITHOUT_PK();
 		
 		String titreRecherche = "", villeRecherche = "", categorieRecherche = "";
@@ -39,6 +41,7 @@ public class ResultatRecherche extends AbstractAction{
 		
 		listeResultatAnnonce = (ArrayList<Annonce>) ORM.loadWithOutPrimaryKey(Annonce.class, critere);
 		
+		context.getVelocityContext().put("listeRecherche", listeResultatAnnonce);
 
 	}
 	
