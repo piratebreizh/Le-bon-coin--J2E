@@ -135,6 +135,9 @@ public class ORM implements IORM {
 	public  ArrayList<Object> _loadWithoutPrimaryKey(Class clazz, ORM_SEARCH_WITHOUT_PK critere) {
 		System.out.println(" ----- Début LOAD WITOUT PRIMARY KEY ---- ");
 		
+		
+		init();
+		
 		ArrayList<Object> listO =  new ArrayList<>();
 		
 		try {			
@@ -166,7 +169,6 @@ public class ORM implements IORM {
 			
 			//Préparation de la requête
 			String sql = "SELECT " + listechamps +" FROM "+ nameTab +" WHERE ";
-			System.out.println(sql);
 			int i=0;
 			
 			ArrayList<String> tempValue = new ArrayList<>();
@@ -189,7 +191,8 @@ public class ORM implements IORM {
 			for(i = 0 ; i<tempValue.size() ; i++){
 				stat.setString(i+1, tempValue.get(i));
 			}
-			
+			System.out.println(sql);
+
 			
 			ResultSet rs = (ResultSet) stat.executeQuery () ;
 
@@ -357,16 +360,18 @@ public class ORM implements IORM {
 					try{
 						if(f.getModifiers() == 1){
 							Object ob = f.get(o);
-							if(flagField == true){
-								value += ",";
-								field += ",";
-							}
 							if(null != ob){
-								flagField = true;	
+								if(flagField == true){
+									value += ",";
+									field += ",";
+								}
+								if(null != ob){
+									flagField = true;	
+								}
+	
+								value += "\"" + (ob.toString()) + "\"";
+								field += f.getName();
 							}
-
-							value += "\"" + (ob.toString()) + "\"";
-							field += f.getName();
 						}
 					}catch(Exception e){
 

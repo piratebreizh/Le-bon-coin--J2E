@@ -13,7 +13,7 @@ import org.esgi.orm.annotations.ORM_TABLE;
 public class Annonce {
 
 	@ORM_PK
-	public int numero;
+	public Integer numero;
 	public String titre;
 	public String description;
 	//Voir pour la gestion des clés étrangères dans l'ORM
@@ -58,6 +58,18 @@ public class Annonce {
 	}
 
 
+
+	public Annonce(String titre, String description, int user, String ville,
+			String categorie, double prix, Date dateCreation) {
+		
+		this.titre = titre;
+		this.description = description;
+		this.user = user;
+		this.ville = ville;
+		this.categorie = categorie;
+		this.prix = prix;
+		this.dateCreation = dateCreation;
+	}
 
 	public String getCategorie() {
 		return categorie;

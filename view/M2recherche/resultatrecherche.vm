@@ -5,14 +5,7 @@
     <div class="lbc">
         <div class="date">
             <div>
-
-                Aujourd'hui
-
-            </div>
-            <div>
-
-                16:24
-
+				$customer.DateCreation
             </div>
         </div>
         <div class="image">

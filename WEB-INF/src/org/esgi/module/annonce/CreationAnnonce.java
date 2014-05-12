@@ -1,5 +1,6 @@
 package org.esgi.module.annonce;
 
+import java.sql.Date;
 import java.util.regex.Pattern;
 
 import org.esgi.web.action.AbstractAction;
@@ -14,6 +15,25 @@ public class CreationAnnonce extends AbstractAction {
 
 	
 
+		if(context.getRequest().getParameter("region") != null && context.getRequest().getParameter("description") != null && 
+				context.getRequest().getParameter("titre") != null && context.getRequest().getParameter("categorie") != null 
+				&& context.getRequest().getParameter("prix") != null ){
+			
+			
+			
+			// A COMPLETER PAS FINI IL FAUT RECUPERER LE NUMERO D'UTILISATEUR QUI EST CONNECTER
+			java.util.Date today = new java.util.Date();
+			Date dateDuJouDate = new Date(today.getTime());
+			Annonce nouvelleCreation = new Annonce(context.getRequest().getParameter("titre"),context.getRequest().getParameter("description"),
+					1,context.getRequest().getParameter("region"),context.getRequest().getParameter("categorie"),Double.parseDouble(context.getRequest().getParameter("prix")),
+					dateDuJouDate);
+			
+			ORM.save(nouvelleCreation);
+			
+			
+		}
+		
+		
 		context.addCSSDependency(context.getProperties().get("context")
 				+ "/res/css/commun.css");/*
 
