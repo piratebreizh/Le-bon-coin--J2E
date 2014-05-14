@@ -1,3 +1,4 @@
+#set ($urlROOT = $context.getProperties().get("context"))
 
 <div class="list-lbc">
 #foreach( $customer in $listeRecherche )
@@ -5,19 +6,12 @@
     <div class="lbc">
         <div class="date">
             <div>
-
-                Aujourd'hui
-
-            </div>
-            <div>
-
-                16:24
-
+				$customer.DateCreation
             </div>
         </div>
         <div class="image">
             <div class="image-and-nb">
-                <img alt="Magnetics Diset 63260 - 4 kits magnétiques" src="http://193.164.196.30/thumbs/685/685408039943320.jpg"></img>
+                <img class="image-de-presentation" alt="Magnetics Diset 63260 - 4 kits magnétiques" src="$urlROOT/res/img/$customer.Photo1"></img>
                 <div class="nb">
                     <div class="top radius"></div>
                     <div class="value radius"></div>

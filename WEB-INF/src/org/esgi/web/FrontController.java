@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.velocity.app.Velocity;
 import org.esgi.module.M2recherche.AnnonceEnDetail;
@@ -25,6 +26,7 @@ import org.esgi.module.user.Connexion;
 import org.esgi.module.user.Enregistrement;
 import org.esgi.module.user.EspacePerso;
 import org.esgi.module.user.Inscription;
+import org.esgi.orm.model.User;
 import org.esgi.web.action.IAction;
 import org.esgi.web.action.IContext;
 import org.esgi.web.layout.LayoutRenderer;
@@ -99,10 +101,30 @@ public class FrontController extends HttpServlet{
 
 		String url = request.getPathInfo();
 		IContext context = createContext(request, response);
+
+		if(url == null || url.equals("/")){
+			url = "/index/";
+		}
+		
+		if(url.equals("/user/logout/")){
+			System.out.println("deco");
+			HttpSession session = request.getSession();
+			session.invalidate();
+			properties.remove("userConnected");
+			url = "/index/";
+		}else{		
+			//Récupération de l'utilisateur connecté
+			HttpSession session = request.getSession();
+	       	User userConnected = (User) session.getAttribute("userConnected");
+	       	if(userConnected!=null){
+	    		properties.put("userConnected", userConnected);
+	       	}
+		}
+       	
 		IAction action = router.find(url, context);
-
+		
 		properties.put("context", request.getContextPath());
-
+		
 
 		if (null != action){
 
