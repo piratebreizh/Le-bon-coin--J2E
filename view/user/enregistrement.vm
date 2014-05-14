@@ -1,7 +1,10 @@
-	#set ($user = $context.getProperties().get("user"))
-	#if( $user.getId() && $user.getId() > 0 )
+	#set ($erreur = $context.getProperties().get("erreur"))
+	#if( $erreur && $erreur =="saveFailed" )
+Une erreur s'est produite lors de la création de votre compte. Veuillez réessayer ultérieurement.
+	#elseif( $erreur && $erreur =="loginAlreadyUsed" )
+Le login renseigné est déjà utilisé.
+	#else
+		#set ($user = $context.getProperties().get("user"))
 Le compte pour $user.getPrenom() $user.getNom().toUpperCase() a bien été créé.
 Vous allez être redirigé vers l'accueil.
-	#else
-Une erreur s'est produite lors de la création de votre compte. Veuillez réessayer ultérieurement.
 	#end

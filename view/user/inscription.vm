@@ -1,7 +1,17 @@
 <div id="formInscription">
 </div>
-
 #set ($js = $context.getProperties().get("context")+"/res/js/user/inscription.js")
 $context.addJSDependency($js)
 		
 $context.addOnJsReady("new Esgi.module.user.Inscription({ id : '#formInscription'})")
+
+<div class="login_more_info">
+  <h1>Les avantages du Compte Personnel:</h1>
+   <p>
+  </p><ul class="no_padd_marg">
+    <li>Un tableau de bord personnalisé pour piloter l'ensemble de vos annonces en ligne.</li>
+    <li>Un dépôt d'annonce simplifié avec vos données personnelles pré remplies.</li>
+    <li>Un historique de tous vos achats dans un seul et même onglet.</li>
+  </ul>
+  <p></p>
+</div>

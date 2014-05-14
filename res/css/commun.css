@@ -1640,6 +1640,20 @@ ul#tabnav a:link,ul#tabnav a:visited{
 	text-align:center;
 }
 
+
+.image-de-presentation{
+	width: 150px;
+	height: 150px;	
+}
+
+.image-first-annonce-en-detail{
+	width: 150px;
+	height: 150px;
+}
+
+
+
+
 .image-and-nb{
 	position:relative;
 	float:left;
@@ -2338,6 +2352,7 @@ table.google td span{
 	opacity:.10;
 	filter:Alpha(Opacity=10);
 	background-image:none;
+	
 }
 
 .ui-icon{

@@ -104,6 +104,13 @@ $(function(){
 			        	  id : 'prix',
 			        	  label : "Prix",
 			        	  emptyText : 'Saisir le prix' 
+			          },
+			          {
+			        	  type :"File",
+			        	  accept :"image/bmp,image/gif,image/png,image/jpeg,image/x-ms-bmp",
+			        	  name : 'upload',
+			        	  id : 'upload',
+			        	  label : "upload",
 			          }
 			          ]
 		});

@@ -1,6 +1,7 @@
 package org.esgi.orm.model;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 import org.esgi.orm.annotations.ORM_SCHEMA;
 import org.esgi.orm.annotations.ORM_TABLE;

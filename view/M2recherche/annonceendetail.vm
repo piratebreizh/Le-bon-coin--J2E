@@ -1,4 +1,7 @@
 
+
+#set ($urlROOT = $context.getProperties().get("context"))
+
 <div>
 
 #if( $annonceExist == false )
@@ -114,22 +117,28 @@
 				<div class="lbcImages">
 					
                     <div class="images_cadre">
-                        <a title="Cliquer pour voir l'image suivante" href="#" id="image" onclick="return nextImage();" class="images" style="background-image: url('http://193.164.197.30/images/707/707410035563743.jpg');"></a>
+                        <a title="Cliquer pour voir l'image suivante" href="#" id="image" onclick="return nextImage();" class="images" style="background-image: url('$urlROOT/res/img/$AnnonceEnvoi.Photo1');"></a>
                     </div>
 					
 					
+						
                         <div class="thumbs_carousel_window">
                             <div id="thumbs_carousel">
-                            <a title="Cliquer pour voir cette image" id="thumb_0" class="thumbs_cadre active" href="#" onclick="return showImage(0);"> 
-                                    <span class="thumbs" style="background-image: url('http://193.164.197.30/thumbs/707/707410035563743.jpg');"></span> 
-                                </a>
+                            #if( $AnnonceEnvoi.Photo1 != "")
+   							<a title="Cliquer pour voir cette image" id="thumb_0" class="thumbs_cadre active" href="#" onclick="return showImage(0);"> 
+                                    <span class="thumbs" style="background-image: url('$urlROOT/res/img/$AnnonceEnvoi.Photo1');"></span> 
+                            </a>
+							#end
+							#if( $AnnonceEnvoi.Photo2 != "")
                             <a title="Cliquer pour voir cette image" id="thumb_1" class="thumbs_cadre" href="#" onclick="return showImage(1);"> 
-                                    <span class="thumbs" style="background-image: url('http://193.164.197.60/thumbs/703/703410037668690.jpg');"></span> 
-                                </a>
+                                    <span class="thumbs" style="background-image: url('$urlROOT/res/img/$AnnonceEnvoi.Photo2');"></span> 
+                            </a>
+                            #end
+                            #if( $AnnonceEnvoi.Photo3 != "")
                             <a title="Cliquer pour voir cette image" id="thumb_2" class="thumbs_cadre" href="#" onclick="return showImage(2);"> 
-                                    <span class="thumbs" style="background-image: url('http://193.164.197.60/thumbs/703/703410034613452.jpg');"></span> 
-                                </a>
-                            
+                                    <span class="thumbs" style="background-image: url('$urlROOT/res/img/$AnnonceEnvoi.Photo3');"></span> 
+                             </a>
+                            #end
                             </div>
                         </div>
                         <div class="nb-photo">

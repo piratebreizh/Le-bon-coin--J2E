@@ -1,6 +1,7 @@
+#set ($urlROOT = $context.getProperties().get("context"))
 <div class="container">
 	<header id="headermain">
-	    <a href=""><img src="http://static.leboncoin.fr/img/logo_25.png" 
+	    <a href="$urlROOT/index/"><img src="$urlROOT/res/img/logo_25.png" 
 	    title="LeBonCoinJ2E" alt="LeBonCoinJ2E" id="header_logo"></a>
 	    <h1><br>$title</h1>
 	</header>
@@ -9,6 +10,43 @@
 			<div id="menuPrincipal"></div>
 		</ul>
 	</nav>
+	
+#set ($user = $context.getProperties().get("userConnected"))
+#if($user)
+<div id="account_login" class="short_v" onclick="window.location.assign('$urlROOT/user/espaceperso/');">
+    <div>
+      <span class="account_userinfo">Bonjour $user.getPrenom(),</span>
+        <div id="account_logout"><a href="$urlROOT/user/logout/">&gt; Se déconnecter</a>
+        </div>
+    </div>
+</div>
+#else
+<div id="account_login_f">
+    <div id="screen_form" class="account_screen">
+        <div class="form_container">
+         <div id="formConnexion">
+			</div>
+
+#set ($js = $context.getProperties().get("context")+"/res/js/user/connexion.js")
+$context.addJSDependency($js)		
+$context.addOnJsReady("new Esgi.module.user.Connexion({ id : '#formConnexion'})")
+
+        </div>
+        <div class="clearer"></div>
+        <div id="lost_passwd">
+            <div class="left_float create_acc">
+                <a href="$urlROOT/user/inscription/">&gt; Cr&eacute;er un compte</a> 
+            </div>
+            <div class="clearer"></div>
+        </div>
+    </div>
+    
+</div>
+#end
+
+#set ($js = $context.getProperties().get("context")+"/res/js/index/index.js")
+$context.addJSDependency($js)
+$context.addOnJsReady("new Esgi.module.index.Index({ id : '#liensAccount'})")
 
 #set ($js = $context.getProperties().get("context")+"/res/js/shared/menuPrincipal.js")
 $context.addJSDependency($js)

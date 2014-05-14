@@ -1,13 +1,16 @@
 package org.esgi.module.index;
 
+import javax.servlet.http.HttpSession;
+
+import org.esgi.orm.model.User;
 import org.esgi.web.action.AbstractAction;
 import org.esgi.web.action.IContext;
 
 public class Index extends AbstractAction {
 
 	public void execute(IContext context) throws Exception {
-		context.getVelocityContext().put("title", "Bienvenue sur LeBonCoinJ2E");
-
+		context.getVelocityContext().put("title", "Bienvenue sur LeBonCoinJ2E");       		 
+       	
 		context.addCSSDependency(context.getProperties().get("context")
 				+ "/res/css/commun.css");
 	}

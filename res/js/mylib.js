@@ -19,7 +19,9 @@ var global = this, loadMyLib = function(onloaded) {
 		me.cfg = cfg;
 		me.render();
 		me.initInputs();
-		me.submit = $("<button>Envoyer</button>");
+		if(!me.cfg.textSubmit)
+			me.cfg.textSubmit = "Envoyer";
+		me.submit = $("<button>"+me.cfg.textSubmit+"</button>");
 		$(me.cfg.renderTo).append(me.submit);
 		me.submit.on('click', function(e) {
 			me.onButtonClick(e)
@@ -56,6 +58,8 @@ var global = this, loadMyLib = function(onloaded) {
 						alert(me.cfg.msgSuccess);
 					else if(me.cfg.resultTo)
 						$(me.cfg.resultTo).html(response);
+					else
+						alert(response);
 					if (me.cfg.redirect)
 						$(location).attr('href', me.cfg.redirect);
 				}
@@ -75,11 +79,12 @@ var global = this, loadMyLib = function(onloaded) {
 			var me = this;
 			if (me.cfg.label != undefined)
 				$(
-						"<label for=\"" + me.cfg.id + "\">" + me.cfg.label
+						"<label class\"" + me.cfg.classLabel + "\" for=\"" + me.cfg.id + "\">" + me.cfg.label
 								+ " :&nbsp;</label>").appendTo(me.cfg.renderTo);
 			$(me.cfg.renderTo).appendTo(me.cfg.renderTo);
 			$(me.cfg.renderTo).append(me.el);
-			$(me.cfg.renderTo).append("<br/>");
+			if(!me.cfg.noInsertBr)
+				$(me.cfg.renderTo).append("<br/>");
 			
 		},
 		getValue : function() {
@@ -91,8 +96,8 @@ var global = this, loadMyLib = function(onloaded) {
 	Esgi.html.inputs.Text = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
-		me.el = $("<input name=\"" + cfg.name + "\" id=\"" + cfg.id
-				+ "\" />");
+		me.el = $("<input class\"" + me.cfg.classInput + "\" name=\"" + cfg.name + "\" id=\"" + cfg.id
+				+ "\" type='text'/>");
 		this.init();
 
 	}
@@ -101,7 +106,7 @@ var global = this, loadMyLib = function(onloaded) {
 	Esgi.html.inputs.TextArea = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
-		me.el = $("<textarea name=\"" + cfg.name + "\" id=\"" + cfg.id
+		me.el = $("<textarea class\"" + me.cfg.classInput + "\" name=\"" + cfg.name + "\" id=\"" + cfg.id
 				+ "\" />");
 		this.init();
 
@@ -111,7 +116,7 @@ var global = this, loadMyLib = function(onloaded) {
 	Esgi.html.inputs.Password = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
-		me.el = $("<input name=\"" + cfg.name + "\" id=\"" + cfg.id
+		me.el = $("<input class\"" + me.cfg.classInput + "\" name=\"" + cfg.name + "\" id=\"" + cfg.id
 				+ "\" type='password'/>");
 		this.init();
 	}
@@ -120,7 +125,7 @@ var global = this, loadMyLib = function(onloaded) {
 	Esgi.html.inputs.Radio = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
-		me.el = $("<input name=\"" + cfg.name + "\" id=\"" + cfg.id
+		me.el = $("<input class\"" + me.cfg.classInput + "\" name=\"" + cfg.name + "\" id=\"" + cfg.id
 				+ "\" type='radio'/>");
 		this.init();
 	}
@@ -129,7 +134,7 @@ var global = this, loadMyLib = function(onloaded) {
 	Esgi.html.inputs.Select = function(cfg) {
 		var me = this;
 		me.cfg = cfg;
-		me.el = $("<select name=\"" + cfg.name + "\" id=\"" + cfg.id + "\">");
+		me.el = $("<select class\"" + me.cfg.classInput + "\" name=\"" + cfg.name + "\" id=\"" + cfg.id + "\">");
 		for ( var val in cfg.options) {
 			$("<option />", {
 				value : val,
@@ -140,6 +145,17 @@ var global = this, loadMyLib = function(onloaded) {
 
 	}
 	Esgi.html.inputs.Select.prototype = commons;
+	
+	Esgi.html.inputs.File = function(cfg) {
+		var me = this;
+		me.cfg = cfg;
+		me.el = $("<input class\"" + me.cfg.classInput + "\" name=\"" + cfg.name + "\" id=\"" + cfg.id
+				+ "\" type='file'/>");
+		this.init();
+	}
+	Esgi.html.inputs.File.prototype = commons;
+	
+
 
 	//
 	// LINKS
@@ -150,6 +166,9 @@ var global = this, loadMyLib = function(onloaded) {
 		me.el = $("<a href=\"" + cfg.href + "\" class=\"" + cfg.classe + "\"\">" + cfg.label + "</a>");
 		this.init();
 	}
+	
+	
+	
 	Esgi.html.link.prototype = {
 		init : function() {
 			var me = this;
