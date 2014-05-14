@@ -10,7 +10,7 @@ $(function() {
 			label : 'Détails de votre compte'
 		});
 		new Esgi.html.link({
-			href : APP_CONTEXT + '/user/annonces/',
+			href : APP_CONTEXT + '/user/espaceperso/vosannonces/',
 			renderTo : cfg.id,
 			classe : 'lienMenu',
 			label : 'Vos annonces'

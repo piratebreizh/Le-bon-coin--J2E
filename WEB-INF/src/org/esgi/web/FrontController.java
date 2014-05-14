@@ -26,6 +26,7 @@ import org.esgi.module.user.Connexion;
 import org.esgi.module.user.Enregistrement;
 import org.esgi.module.user.EspacePerso;
 import org.esgi.module.user.Inscription;
+import org.esgi.module.user.VosAnnonces;
 import org.esgi.orm.model.User;
 import org.esgi.web.action.IAction;
 import org.esgi.web.action.IContext;
@@ -91,6 +92,7 @@ public class FrontController extends HttpServlet{
 		registerAction(new Recherche());
 		registerAction(new ResultatRecherche());
 		registerAction(new AnnonceEnDetail());
+		registerAction(new VosAnnonces());
 		layoutRender = new LayoutRenderer();
 	}
 	

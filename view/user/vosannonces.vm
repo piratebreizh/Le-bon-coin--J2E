@@ -1,0 +1,50 @@
+
+#if($utilisateurConnecter == false)
+    <h1>Veuillez vous connecter avant de voir vos annonces</h1>
+#else
+#set ($urlROOT = $context.getProperties().get("context"))
+
+<div class="list-lbc">
+#foreach( $customer in $listeRecherche )
+<a title="test" href="http://localhost:8080/Le-bon-coin--J2E/AnnonceEnDetail/?idAnnonce=$customer.Numero">
+    <div class="lbc">
+        <div class="date">
+            <div>
+				$customer.DateCreation
+            </div>
+        </div>
+        <div class="image">
+            <div class="image-and-nb">
+                <img class="image-de-presentation" alt="Magnetics Diset 63260 - 4 kits magnétiques" src="$urlROOT/res/img/$customer.Photo1"></img>
+                <div class="nb">
+                    <div class="top radius"></div>
+                    <div class="value radius"></div>
+                </div>
+            </div>
+        </div>
+        <div class="detail">
+            <div class="title">
+				$customer.Titre
+            </div>
+            <div class="category">
+				$customer.Categorie
+            </div>
+            <div class="placement">
+            	$customer.Ville
+            </div>
+            <div class="price">
+				$customer.Prix
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</a>
+<div class="clear"></div>
+#end
+</div>
+
+
+
+
+#end
