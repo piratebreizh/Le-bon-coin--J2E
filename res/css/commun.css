@@ -3371,7 +3371,7 @@ div#account_login {
     background: none no-repeat scroll 0 0 #3F3F44;
     border-radius: 0 0 7px 7px;
     cursor: pointer;
-    height: 35px;
+    height: 50px;
     padding-top: 8px;
     position: absolute;
     right: 5px;
@@ -3551,7 +3551,7 @@ div#account_creditinfo ul li a {
     border: 0 none;
     border-radius: 3px;
     font-size: 10px;
-    height: 14px;
+    height: 20px;
     margin: 0;
     padding: 4px;
     position: relative;

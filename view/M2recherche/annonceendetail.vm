@@ -30,7 +30,7 @@
        </div> 
        <div> 
            <div class="lbc_links"> 
-               <img src="http://static.leboncoin.fr/img/view_mail.png" class="lbc_links_pics" alt="Envoyer un email"> 
+               <img src="$urlROOT/res/img/view_mail.png" class="lbc_links_pics" alt="Envoyer un email"> 
                <a rel="nofollow" href="mailto:$Vendeur.adresseMail">Envoyer un email</a>
            </div> 
                        
@@ -59,50 +59,28 @@
             
                 
                 <div class="lbc_links">
-                    <img src="http://static.leboncoin.fr/img/view_modify.png" class="lbc_links_pics" alt="Modifier">
-                    <a rel="nofollow" href="http://www2.leboncoin.fr/ai?ca=12_s&amp;id=646915860&amp;cmd=edit" onclick="return xt_click(this,'C','0','modifier_v2','N')">Modifier</a>
+                    <img src="$urlROOT/res/img/view_modify.png" class="lbc_links_pics" alt="Modifier">
+                    <a rel="nofollow" href="" onclick="return xt_click(this,'C','0','modifier_v2','N')">Modifier</a>
                 </div>
                 
                 <div class="lbc_links">
-                    <img src="http://static.leboncoin.fr/img/view_delete.gif" class="lbc_links_pics" alt="Supprimer">
-                    <a rel="nofollow" href="http://www2.leboncoin.fr/ai?ca=12_s&amp;id=646915860&amp;cmd=delete" onclick="return xt_click(this,'C','0','supprimer_v2','N')">Supprimer</a>
+                    <img src="$urlROOT/res/img/view_delete.gif" class="lbc_links_pics" alt="Supprimer">
+                    <a rel="nofollow" href="" onclick="return xt_click(this,'C','0','supprimer_v2','N')">Supprimer</a>
                 </div>
             
              <div class="lbc_links">
-                <img src="http://static.leboncoin.fr/img/view_toplist.png" class="lbc_links_pics" alt="Remonter en tête de liste">
-                <a rel="nofollow" href="http://www2.leboncoin.fr/ai?ca=12_s&amp;id=646915860&amp;cmd=daily_bump" onclick="return xt_click(this,'C','0','remonter_v2','N')">Remonter en tête de liste</a>
+                <img src="$urlROOT/res/img/view_toplist.png" class="lbc_links_pics" alt="Remonter en tête de liste">
+                <a rel="nofollow" href="" onclick="return xt_click(this,'C','0','remonter_v2','N')">Remonter en tête de liste</a>
              </div>
              <div class="lbc_links">
-                <img src="http://static.leboncoin.fr/img/view_up.png" class="lbc_links_pics" alt="Mettre en avant">
-                <a rel="nofollow" href="http://www2.leboncoin.fr/ai?ca=12_s&amp;id=646915860&amp;cmd=gallery7" onclick="return xt_click(this,'C','0','mettre_v2','N')">Mettre en avant</a>
+                <img src="$urlROOT/res/img/view_up.png" class="lbc_links_pics" alt="Mettre en avant">
+                <a rel="nofollow" href="" onclick="return xt_click(this,'C','0','mettre_v2','N')">Mettre en avant</a>
              </div>
              
     </div>
     
 
-    
-        
-
-<div class="oas-x11" id="oas-x11">
-    <script type="text/javascript">
-    </script><a href="http://deliv.leboncoin.fr/1c/loisirs/sports_hobbies/R12/D91/1751109783@Middle,x11,x12,x06,x07!x11?cp=91620&amp;prixmin=40&amp;prixmax=75&amp;titre=casque_gpa_titium_taille_55&amp;ad=646915860&amp;offres=part&amp;r=12&amp;d=91&amp;XE&amp;compte=0&amp;XE&amp;" target="_top"><img class="zlkmaorwrxfsvrrvtkvk" src="http://deliv.leboncoin.fr/1/loisirs/sports_hobbies/R12/D91/1751109783@Middle,x11,x12,x06,x07!x11?cp=91620&amp;prixmin=40&amp;prixmax=75&amp;titre=casque_gpa_titium_taille_55&amp;ad=646915860&amp;offres=part&amp;r=12&amp;d=91&amp;XE&amp;compte=0&amp;XE&amp;" border="0"></a>
-</div>
-
-<div class="oas-x12" id="oas-x12">
-    <script type="text/javascript">
-    </script><a href="http://deliv.leboncoin.fr/1c/loisirs/sports_hobbies/R12/D91/1751109783@Middle,x11,x12,x06,x07!x12?cp=91620&amp;prixmin=40&amp;prixmax=75&amp;titre=casque_gpa_titium_taille_55&amp;ad=646915860&amp;offres=part&amp;r=12&amp;d=91&amp;XE&amp;compte=0&amp;XE&amp;" target="_top"><img class="zlkmaorwrxfsvrrvtkvk" src="http://deliv.leboncoin.fr/1/loisirs/sports_hobbies/R12/D91/1751109783@Middle,x11,x12,x06,x07!x12?cp=91620&amp;prixmin=40&amp;prixmax=75&amp;titre=casque_gpa_titium_taille_55&amp;ad=646915860&amp;offres=part&amp;r=12&amp;d=91&amp;XE&amp;compte=0&amp;XE&amp;" border="0"></a>
-</div>
-
-
-
-
-        
-
-<div class="oas-middle" id="oas-middle">
-    <script type="text/javascript">
-    </script><a href="http://deliv.leboncoin.fr/1c/loisirs/sports_hobbies/R12/D91/1751109783@Middle,x11,x12,x06,x07!Middle?cp=91620&amp;prixmin=40&amp;prixmax=75&amp;titre=casque_gpa_titium_taille_55&amp;ad=646915860&amp;offres=part&amp;r=12&amp;d=91&amp;XE&amp;compte=0&amp;XE&amp;" target="_top"><img class="zlkmaorwrxfsvrrvtkvk" src="http://deliv.leboncoin.fr/1/loisirs/sports_hobbies/R12/D91/1751109783@Middle,x11,x12,x06,x07!Middle?cp=91620&amp;prixmin=40&amp;prixmax=75&amp;titre=casque_gpa_titium_taille_55&amp;ad=646915860&amp;offres=part&amp;r=12&amp;d=91&amp;XE&amp;compte=0&amp;XE&amp;" border="0"></a>
-</div>
-
+  
 
 
     
@@ -145,43 +123,9 @@
                             3 photos disponibles
                         </div> 
 
-                        
-                        <script type="text/javascript">
-                            var imageCurrent = 0;
-                            var aImages = new Array();
-
-                            $( document ).ready(function() {
-                                aImages[0] = "http://193.164.197.30/images/707/707410035563743.jpg";
-                                    set_title("thumb_0", "Cliquer pour voir cette image");
-                                aImages[1] = "http://193.164.197.60/images/703/703410037668690.jpg";
-                                    set_title("thumb_1", "Cliquer pour voir cette image");
-                                aImages[2] = "http://193.164.197.60/images/703/703410034613452.jpg";
-                                    set_title("thumb_2", "Cliquer pour voir cette image");
-                                
-                                set_title("image", "Cliquer pour voir l'image suivante");
-                                
-                            });
-                        </script>
+                      
                 
                     </div>
-                </div>
-                <div class="print-lbcImages">
-                    <div class="print-image1">
-                        
-                            <img src="http://193.164.197.30/images/707/707410035563743.jpg" alt="">
-                        
-                    </div>
-                    
-                    <div class="print-image-other">
-                        
-                        <img src="http://193.164.197.60/thumbs/703/703410037668690.jpg" alt="">
-                        
-                        <img src="http://193.164.197.60/thumbs/703/703410034613452.jpg" alt="">
-                        
-                    </div>
-                    
-                
-            
                 </div>
 	
 <div class="lbcParamsContainer floatLeft">
@@ -234,7 +178,7 @@
             OAS_AD('x06');
         }
         //-->
-    </script><a href="http://deliv.leboncoin.fr/1c/loisirs/sports_hobbies/R12/D91/1751109783@Middle,x11,x12,x06,x07!x06?cp=91620&amp;prixmin=40&amp;prixmax=75&amp;titre=casque_gpa_titium_taille_55&amp;ad=646915860&amp;offres=part&amp;r=12&amp;d=91&amp;XE&amp;compte=0&amp;XE&amp;" target="_top"><img class="zlkmaorwrxfsvrrvtkvk" src="http://deliv.leboncoin.fr/1/loisirs/sports_hobbies/R12/D91/1751109783@Middle,x11,x12,x06,x07!x06?cp=91620&amp;prixmin=40&amp;prixmax=75&amp;titre=casque_gpa_titium_taille_55&amp;ad=646915860&amp;offres=part&amp;r=12&amp;d=91&amp;XE&amp;compte=0&amp;XE&amp;" border="0"></a>
+    </script
 </div>
 <div class="oas-x07" id="oas-x07">
     <script type="text/javascript">
@@ -243,7 +187,7 @@
             OAS_AD('x07');
         }
         //-->
-    </script><a href="http://deliv.leboncoin.fr/1c/loisirs/sports_hobbies/R12/D91/1751109783@Middle,x11,x12,x06,x07!x07?cp=91620&amp;prixmin=40&amp;prixmax=75&amp;titre=casque_gpa_titium_taille_55&amp;ad=646915860&amp;offres=part&amp;r=12&amp;d=91&amp;XE&amp;compte=0&amp;XE&amp;" target="_top"><img class="zlkmaorwrxfsvrrvtkvk" src="http://deliv.leboncoin.fr/1/loisirs/sports_hobbies/R12/D91/1751109783@Middle,x11,x12,x06,x07!x07?cp=91620&amp;prixmin=40&amp;prixmax=75&amp;titre=casque_gpa_titium_taille_55&amp;ad=646915860&amp;offres=part&amp;r=12&amp;d=91&amp;XE&amp;compte=0&amp;XE&amp;" border="0"></a>
+    </script>
 </div>
 
 

@@ -10,10 +10,10 @@ $(function() {
 			label : 'Accueil'
 		});
 		new Esgi.html.link({
-			href : APP_CONTEXT + '/user/espaceperso/',
+			href : APP_CONTEXT + '/annonce/creation/',
 			renderTo : cfg.id,
 			classe : 'lienMenu',
-			label : 'Mon compte'
+			label : 'Déposer une annonce'
 		});
 		new Esgi.html.link({
 			href : APP_CONTEXT + '/recherche/',
@@ -22,10 +22,10 @@ $(function() {
 			label : 'Recherche'
 		});
 		new Esgi.html.link({
-			href : APP_CONTEXT + '/annonce/creation/',
+			href : APP_CONTEXT + '/user/espaceperso/',
 			renderTo : cfg.id,
 			classe : 'lienMenu',
-			label : 'Déposer une annonce'
+			label : 'Mon compte'
 		});
 
 	}

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -71,6 +72,8 @@ public class FrontController extends HttpServlet{
 		configVelocity.setProperty("file.resource.loader.path", config.getServletContext().getRealPath("/") + properties.getProperty("template.path")+ "/");
 		Velocity.init(configVelocity);
 
+		properties.put("realPath", config.getServletContext().getRealPath("/"));
+
 		registerAction(new FileList());
 		registerAction(new FileDownload());
 		registerAction(new FileUpload());
@@ -105,7 +108,8 @@ public class FrontController extends HttpServlet{
 		IContext context = createContext(request, response);
 
 		if(url == null || url.equals("/")){
-			url = "/index/";
+			context.getResponse().sendRedirect(context.getRequest().getContextPath() + "/index/");
+			return;
 		}
 		
 		if(url.equals("/user/logout/")){
@@ -113,7 +117,8 @@ public class FrontController extends HttpServlet{
 			HttpSession session = request.getSession();
 			session.invalidate();
 			properties.remove("userConnected");
-			url = "/index/";
+			context.getResponse().sendRedirect(context.getRequest().getContextPath() + "/index/");
+			return;
 		}else{		
 			//Récupération de l'utilisateur connecté
 			HttpSession session = request.getSession();
@@ -122,7 +127,7 @@ public class FrontController extends HttpServlet{
 	    		properties.put("userConnected", userConnected);
 	       	}
 		}
-       	
+		
 		IAction action = router.find(url, context);
 		
 		properties.put("context", request.getContextPath());

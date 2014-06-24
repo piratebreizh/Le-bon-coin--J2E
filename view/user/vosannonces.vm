@@ -6,7 +6,7 @@
 
 <div class="list-lbc">
 #foreach( $customer in $listeRecherche )
-<a title="test" href="http://localhost:8080/Le-bon-coin--J2E/AnnonceEnDetail/?idAnnonce=$customer.Numero">
+<a title="test" href="$urlROOT/AnnonceEnDetail/?idAnnonce=$customer.Numero">
     <div class="lbc">
         <div class="date">
             <div>
