@@ -1642,8 +1642,8 @@ ul#tabnav a:link,ul#tabnav a:visited{
 
 
 .image-de-presentation{
-	width: 150px;
-	height: 150px;	
+	max-width: 150px;
+	height: auto;
 }
 
 .image-first-annonce-en-detail{
@@ -2704,8 +2704,8 @@ a.thumbs_cadre.active {
 .thumbs {
     background: none no-repeat scroll center center rgba(0, 0, 0, 0);
     display: block;
-    height: 120px;
-    width: 160px;
+    max-height: 120px;
+    width: auto;
 }
 .arrow {
     border-color: #FFFFEB;

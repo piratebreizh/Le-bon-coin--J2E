@@ -13,15 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.velocity.app.Velocity;
-import org.esgi.module.M2recherche.AnnonceEnDetail;
-import org.esgi.module.M2recherche.Recherche;
-import org.esgi.module.M2recherche.ResultatRecherche;
 import org.esgi.module.annonce.CreationAnnonce;
 import org.esgi.module.file.FileDelete;
 import org.esgi.module.file.FileDownload;
 import org.esgi.module.file.FileList;
 import org.esgi.module.file.FileUpload;
 import org.esgi.module.index.Index;
+import org.esgi.module.recherche.AnnonceEnDetail;
+import org.esgi.module.recherche.Recherche;
+import org.esgi.module.recherche.ResultatRecherche;
 import org.esgi.module.user.Connect;
 import org.esgi.module.user.Connexion;
 import org.esgi.module.user.Enregistrement;
@@ -90,8 +90,6 @@ public class FrontController extends HttpServlet{
 		registerAction(new Connexion());
 		registerAction(new EspacePerso());
 		registerAction(new CreationAnnonce());
-		//registerAction(new RechercheAnnonce());
-
 		registerAction(new Recherche());
 		registerAction(new ResultatRecherche());
 		registerAction(new AnnonceEnDetail());
@@ -113,7 +111,6 @@ public class FrontController extends HttpServlet{
 		}
 		
 		if(url.equals("/user/logout/")){
-			System.out.println("deco");
 			HttpSession session = request.getSession();
 			session.invalidate();
 			properties.remove("userConnected");

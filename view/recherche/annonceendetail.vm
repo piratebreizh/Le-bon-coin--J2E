@@ -19,7 +19,35 @@
 </div>
 	
 	
-
+<script>
+var imageCurrent=0;
+var aImages = ['$urlROOT/res/img/$AnnonceEnvoi.Photo1',
+				'$urlROOT/res/img/$AnnonceEnvoi.Photo2',
+				'$urlROOT/res/img/$AnnonceEnvoi.Photo3'];
+function showImage(a){
+	$("thumb_"+imageCurrent).removeClass('active');
+	imageCurrent=a;
+	$("thumb_"+imageCurrent).removeClass('active');
+	document.getElementById("image").style.backgroundImage="url('"+aImages[a]+"')";
+	goView(a);
+	return false
+}
+function goView(b){
+	var e=3;
+	var c=174;
+	var a=b-1;
+	if(a>(aImages.length-e)){a=aImages.length-e}
+	if(a<0){a=0}
+	document.getElementById("thumbs_carousel").style.left="-"+a*c+"px"
+}
+function nextImage(b){
+	if(b==undefined){b=1}
+	var a=imageCurrent+b;
+	a=a%aImages.length;
+	if(a<0){a+=aImages.length}
+	return showImage(a);
+}
+</script>
 
 <div class="lbcOptions">
    <div class="lbc_option_box"> 
@@ -122,79 +150,29 @@
                         <div class="nb-photo">
                             3 photos disponibles
                         </div> 
-
-                      
-                
                     </div>
                 </div>
 	
 <div class="lbcParamsContainer floatLeft">
+	<div class="lbcParams floatLeft">
+		<table>
+		    <tbody>
+		    	<tr class="price">
+			        <th>
+			                Prix : 
+			        </th>
+					<td>
+						<span class="price">$AnnonceEnvoi.Prix €</span>
+					</td>
+				</tr>
+				<tr>
+				    <th>Région :</th>
+				    <td>$AnnonceEnvoi.Ville</td>
+				</tr>	 
+			</tbody>
+		</table>
+	</div>
 
-<div class="lbcParams floatLeft">
-
-    
-	
-	    
-
-	    
-
-	    
-	
-    
-
-    <table>
-        
-            <tbody><tr class="price">
-                <th>
-                        Prix: 
-                </th>
-                <td>
-                            <span class="price">$AnnonceEnvoi.Prix €</span>
-        
-                </td>
-            </tr>
-        
-        
-            <tr>
-                <th>Région :</th>
-                <td>$AnnonceEnvoi.Ville</td>
-            </tr>
- 
-        </tbody>
-        </table>
-
-	
-	    
-		
-	    
-	
-</div>
-
-<div class="floatRight x06_x07Div">
-<div class="oas-x06" id="oas-x06">
-    <script type="text/javascript">
-        <!--
-        if(OAS_listpos.search("(^x06|x06,|x06$)") != -1) {
-            OAS_AD('x06');
-        }
-        //-->
-    </script
-</div>
-<div class="oas-x07" id="oas-x07">
-    <script type="text/javascript">
-        <!--
-        if(OAS_listpos.search("(^x07|x07,|x07$)") != -1) {
-            OAS_AD('x07');
-        }
-        //-->
-    </script>
-</div>
-
-
-
-    
- 
-</div> 
 
 <div class="clearer"></div>
 
@@ -217,75 +195,10 @@
 <div class="clear"></div>
 
 
-<div class="adwatch_saved" id="ad_saved" style="display: none">
-	<span id="ad_saved_msg"></span>
-</div>
-
-<script type="text/javascript">
-<!--
-	$( document ).ready(function() {
-		var block = document.getElementById("advise_link_a");
-		block.style.display="block";
-
-		var myads_block = document.getElementById("myads_link");
-		myads_block.style.display="inline";
-	});
-
-	function advise_display() {
-	 	var block = document.getElementById("adview_advise");
-
-		if ((block.style.display == "none") || (block.style.display == "")) {
-			document.getElementById("advise_link_a").href = "#adview_advise";
-			block.style.display="block";
-		} else if (block.style.display == "block") {
-			document.getElementById("advise_link_a").href = "#advise_link";
-			block.style.display="none";
-		}
-	}
-	// -->
-</script>
 </div> 
 
-
-
-
-<br>
-<div style="display: none;" id="adview_advise" class="lbcAdvise">
-<script type="text/javascript">
-	$( document ).ready(function() {
-		var advise = document.getElementById("adview_advise");
-		advise.style.display="none";
-		
-	});
-</script>
-<br>
-<span class="fake_h3"><strong>Conseiller l'annonce à un ami</strong></span>
-<br>
 <br>
 
-<form action="/st" method="get">
-<input name="ca" value="12_s" type="hidden">
-<input name="id" value="646915860" type="hidden">
-
-	<div id="TipName">
-	    <div class="TipText">Votre adresse email:</div>
-	    <input class="tipInput" name="tip_sender" size="30" value="" maxlength="60" id="tip_sender" type="text">
-	    
-	</div>
-    <br>
-
-	<div id="TipRecipient">
-		<div class="TipText">L'adresse email de votre ami(e):</div>
-	    <input class="tipInput" name="tip_email" size="30" value="" maxlength="60" id="tip_email" type="text">
-	    
-    </div><br>
-	<div class="tipSend">
-	    <input value="Envoyer" onclick="check_dc('dd');return xt_click(this,'C','0','conseiller','N')" type="submit">
-	</div>
-</form>
-
-<br><br>
-</div>
 
 </div>
 </div>

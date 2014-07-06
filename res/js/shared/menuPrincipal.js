@@ -22,6 +22,12 @@ $(function() {
 			label : 'Recherche'
 		});
 		new Esgi.html.link({
+			href : APP_CONTEXT + '/user/espaceperso/vosannonces/',
+			renderTo : cfg.id,
+			classe : 'lienMenu',
+			label : 'Mes Annonces'
+		});
+		new Esgi.html.link({
 			href : APP_CONTEXT + '/user/espaceperso/',
 			renderTo : cfg.id,
 			classe : 'lienMenu',

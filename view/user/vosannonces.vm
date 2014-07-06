@@ -33,7 +33,7 @@
             	$customer.Ville
             </div>
             <div class="price">
-				$customer.Prix
+				$customer.Prix €
             </div>
         </div>
         <div class="clear"></div>
