@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import org.esgi.orm.annotations.*;
+import org.esgi.orm.annotations.ORM_PK;
+import org.esgi.orm.annotations.ORM_SEARCH_WITHOUT_PK;
+import org.esgi.orm.annotations.ORM_TABLE;
 
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
@@ -24,7 +26,10 @@ public class ORM implements IORM {
 	private static final  String TYPE_FIELD_DOUBLE = "double"; 
 	private static final  String TYPE_FIELD_BOOLEAN = "tinyint(1)"; 
 	private static final  String TYPE_FIELD_DATE = "date"; 
-
+	
+	private static final String BDD_ADDR = "jdbc:mysql://localhost/java2e";
+	private static final String BDD_LOGIN = "root";
+	private static final String BDD_PASSWORD = "root";
 
 	static ORM instance;
 	private java.sql.Statement _statement;
@@ -404,10 +409,12 @@ public class ORM implements IORM {
 	}
 
 	public void init(){
+		//Chargement du driver
 		try { Class.forName("com.mysql.jdbc.Driver").newInstance(); }
 		catch (Exception e) { e.printStackTrace(); }
+		//Récupération de la connexion à la base de données
 		try { 
-			this.connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/java2e","root","root") ;
+			this.connection = (Connection) DriverManager.getConnection(BDD_ADDR,BDD_LOGIN,BDD_PASSWORD) ;
 		}
 		catch (SQLException e) { e.printStackTrace();}
 	}
