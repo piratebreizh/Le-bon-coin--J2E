@@ -54,12 +54,14 @@ var global = this, loadMyLib = function(onloaded) {
 				method : 'POST',
 				data : data,
 				success : function(response) {
-					if (me.cfg.msgSuccess)
-						alert(me.cfg.msgSuccess);
-					else if(me.cfg.resultTo)
-						$(me.cfg.resultTo).html(response);
-					else
-						alert(response);
+					if(response.trim() != "OK"){
+						if (me.cfg.msgSuccess)
+							alert(me.cfg.msgSuccess);
+						else if(me.cfg.resultTo)
+							$(me.cfg.resultTo).html(response);
+						else
+							alert(response);
+					}
 					if (me.cfg.redirect)
 						$(location).attr('href', me.cfg.redirect);
 				}

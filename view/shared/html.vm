@@ -54,7 +54,6 @@ $context.getFragment("shared/main_footer")
 
 <script>
 $(function(){
-	console.log('Im ready');    
     #foreach($jsUrl in $context.getOnJsReady())
 		$jsUrl
 	#end
