@@ -15,6 +15,5 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/velocity-1.7-dep.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/velocity-1.7.jar"/>
 	<classpathentry kind="src" path="WEB-INF/src"/>
-	<classpathentry kind="src" output="work" path="work"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>
