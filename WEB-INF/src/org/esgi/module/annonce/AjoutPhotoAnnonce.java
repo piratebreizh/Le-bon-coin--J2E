@@ -52,7 +52,7 @@ public class AjoutPhotoAnnonce extends AbstractAction {
 					
 					for(int numPhoto = 0 ; numPhoto< 3 ; numPhoto++){
 						FileItem uploadedFile = fileList.get(numPhoto);
-						String idAnnonce = context.getRequest().getParameter("idAnnonce");
+						String idAnnonce = fileList.get(3).getString();
 						
 						if(idAnnonce== null)
 							idAnnonce = "1";
