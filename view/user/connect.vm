@@ -1,6 +1,6 @@
 #set ($isPasswordCorrect = $context.getProperties().get("isPasswordCorrect"))
 	#if($isPasswordCorrect)
-Bon mot de passe
+OK
 	#else
 Mauvais mot de passe
 	#end

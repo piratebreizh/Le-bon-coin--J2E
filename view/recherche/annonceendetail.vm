@@ -1,0 +1,208 @@
+
+
+#set ($urlROOT = $context.getProperties().get("context"))
+
+<div>
+
+#if( $annonceExist == false )
+    Cette annonce n'existe plus, désolé.
+#else 
+</div>
+
+<div class="content-border">
+	<div class="content-color">
+
+<div class="lbcContainer">
+    <div class="header_adview">
+        <h2 id="ad_subject">$AnnonceEnvoi.Titre</h2>
+        <div class="upload_by"> Mise en ligne par <b>$Vendeur.Nom $Vendeur.Prenom</b> le $AnnonceEnvoi.DateCreation</div>
+</div>
+	
+	
+<script>
+var imageCurrent=0;
+var aImages = ['$urlROOT/res/img/$AnnonceEnvoi.Photo1',
+				'$urlROOT/res/img/$AnnonceEnvoi.Photo2',
+				'$urlROOT/res/img/$AnnonceEnvoi.Photo3'];
+function showImage(a){
+	$("thumb_"+imageCurrent).removeClass('active');
+	imageCurrent=a;
+	$("thumb_"+imageCurrent).removeClass('active');
+	document.getElementById("image").style.backgroundImage="url('"+aImages[a]+"')";
+	goView(a);
+	return false
+}
+function goView(b){
+	var e=3;
+	var c=174;
+	var a=b-1;
+	if(a>(aImages.length-e)){a=aImages.length-e}
+	if(a<0){a=0}
+	document.getElementById("thumbs_carousel").style.left="-"+a*c+"px"
+}
+function nextImage(b){
+	if(b==undefined){b=1}
+	var a=imageCurrent+b;
+	a=a%aImages.length;
+	if(a<0){a+=aImages.length}
+	return showImage(a);
+}
+</script>
+
+<div class="lbcOptions">
+   <div class="lbc_option_box"> 
+       <div class="lbc_option_box_title"> 
+       
+           <label class="lbc_option_box_title_text"><strong>Contacter l'annonceur</strong></label> 
+       
+       </div> 
+       <div> 
+           <div class="lbc_links"> 
+               <img src="$urlROOT/res/img/view_mail.png" class="lbc_links_pics" alt="Envoyer un email"> 
+               <a rel="nofollow" href="mailto:$Vendeur.adresseMail">Envoyer un email</a>
+           </div> 
+                       
+           <div class="clear"></div>
+            
+           
+               <div class="lbc_links" style="margin:0.8em;font-size:11px;">
+                   <em>(Je refuse tout démarchage commercial)</em>
+               </div>
+           
+       </div>
+   </div>
+
+    
+    
+
+    
+
+    
+    <div class="lbc_option_box">
+        <div class="lbc_option_box_title">
+            <label class="lbc_option_box_title_text"><strong>Gérer votre annonce</strong></label>
+        </div>
+
+        
+            
+                
+                <div class="lbc_links">
+                    <img src="$urlROOT/res/img/view_modify.png" class="lbc_links_pics" alt="Modifier">
+                    <a rel="nofollow" href="" onclick="return xt_click(this,'C','0','modifier_v2','N')">Modifier</a>
+                </div>
+                
+                <div class="lbc_links">
+                    <img src="$urlROOT/res/img/view_delete.gif" class="lbc_links_pics" alt="Supprimer">
+                    <a rel="nofollow" href="" onclick="return xt_click(this,'C','0','supprimer_v2','N')">Supprimer</a>
+                </div>
+            
+             <div class="lbc_links">
+                <img src="$urlROOT/res/img/view_toplist.png" class="lbc_links_pics" alt="Remonter en tête de liste">
+                <a rel="nofollow" href="" onclick="return xt_click(this,'C','0','remonter_v2','N')">Remonter en tête de liste</a>
+             </div>
+             <div class="lbc_links">
+                <img src="$urlROOT/res/img/view_up.png" class="lbc_links_pics" alt="Mettre en avant">
+                <a rel="nofollow" href="" onclick="return xt_click(this,'C','0','mettre_v2','N')">Mettre en avant</a>
+             </div>
+             
+    </div>
+    
+
+  
+
+
+    
+
+</div>
+
+
+	<div class="floatLeft">
+		<div>
+			
+			
+				<div class="lbcImages">
+					
+                    <div class="images_cadre">
+                        <a title="Cliquer pour voir l'image suivante" href="#" id="image" onclick="return nextImage();" class="images" style="background-image: url('$urlROOT/res/img/$AnnonceEnvoi.Photo1');"></a>
+                    </div>
+					
+					
+						
+                        <div class="thumbs_carousel_window">
+                            <div id="thumbs_carousel">
+                            #if( $AnnonceEnvoi.Photo1 != "")
+   							<a title="Cliquer pour voir cette image" id="thumb_0" class="thumbs_cadre active" href="#" onclick="return showImage(0);"> 
+                                    <span class="thumbs" style="background-image: url('$urlROOT/res/img/$AnnonceEnvoi.Photo1');"></span> 
+                            </a>
+							#end
+							#if( $AnnonceEnvoi.Photo2 != "")
+                            <a title="Cliquer pour voir cette image" id="thumb_1" class="thumbs_cadre" href="#" onclick="return showImage(1);"> 
+                                    <span class="thumbs" style="background-image: url('$urlROOT/res/img/$AnnonceEnvoi.Photo2');"></span> 
+                            </a>
+                            #end
+                            #if( $AnnonceEnvoi.Photo3 != "")
+                            <a title="Cliquer pour voir cette image" id="thumb_2" class="thumbs_cadre" href="#" onclick="return showImage(2);"> 
+                                    <span class="thumbs" style="background-image: url('$urlROOT/res/img/$AnnonceEnvoi.Photo3');"></span> 
+                             </a>
+                            #end
+                            </div>
+                        </div>
+                        <div class="nb-photo">
+                            3 photos disponibles
+                        </div> 
+                    </div>
+                </div>
+	
+<div class="lbcParamsContainer floatLeft">
+	<div class="lbcParams floatLeft">
+		<table>
+		    <tbody>
+		    	<tr class="price">
+			        <th>
+			                Prix : 
+			        </th>
+					<td>
+						<span class="price">$AnnonceEnvoi.Prix €</span>
+					</td>
+				</tr>
+				<tr>
+				    <th>Région :</th>
+				    <td>$AnnonceEnvoi.Ville</td>
+				</tr>	 
+			</tbody>
+		</table>
+	</div>
+
+
+<div class="clearer"></div>
+
+</div>
+
+<div class="AdviewContent">
+    <div class="type">Description :</div>
+    <div class="content">
+	$AnnonceEnvoi.Description
+    </div>
+</div>
+
+
+
+
+    
+    
+</div>
+
+<div class="clear"></div>
+
+
+</div> 
+
+<br>
+
+
+</div>
+</div>
+
+<div class="clear"></div>
+#end
+            

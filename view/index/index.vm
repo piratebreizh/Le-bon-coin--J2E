@@ -1,5 +1,6 @@
 <div id="container">
 </div>
+Bienvenue sur LeBonCoinJ2E !
 
 #set ($js = $context.getProperties().get("context")+"/res/js/index/index.js")
 $context.addJSDependency($js)

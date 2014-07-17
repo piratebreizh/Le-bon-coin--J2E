@@ -1,4 +1,4 @@
-package org.esgi.module.M2recherche;
+package org.esgi.module.recherche;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -18,13 +18,8 @@ public class VosAnnonces extends AbstractAction {
 			
 			ORM_SEARCH_WITHOUT_PK critere = new ORM_SEARCH_WITHOUT_PK();
 
-			if(context.getProperties().get("userConnected") == null){
-				context.getVelocityContext().put("utilisateurConnecter", false);		
-			}else{
-				context.getVelocityContext().put("utilisateurConnecter", true);
-				User userConnected = (User) context.getProperties().get("userConnected");
-
-				
+			if(context.getProperties().get("userConnected") != null){
+				User userConnected = (User) context.getProperties().get("userConnected");				
 				critere.addConstrainte("user", String.valueOf(userConnected.getId()));
 	
 				ArrayList<Annonce> listeResultatAnnonce = new ArrayList<>();

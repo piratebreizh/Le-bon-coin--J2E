@@ -16,14 +16,12 @@ public class Annonce {
 	public Integer numero;
 	public String titre;
 	public String description;
-	//Voir pour la gestion des clés étrangères dans l'ORM
 	public int user;
 	public String ville;
 	public String categorie;
 	public String photo1;
 	public String photo2;
 	public String photo3;
-	public String photo4;
 	public double prix;
 	public Date dateCreation;
 	
@@ -53,7 +51,6 @@ public class Annonce {
 		this.photo1 = photo1;
 		this.photo2 = photo2;
 		this.photo3 = photo3;
-		this.photo4 = photo4;
 		this.prix = prix;
 	}
 
@@ -119,23 +116,10 @@ public class Annonce {
 
 
 
-	public String getPhoto4() {
-		return photo4;
-	}
-
-
-
-	public void setPhoto4(String photo4) {
-		this.photo4 = photo4;
-	}
-
-
 
 	public double getPrix() {
 		return prix;
 	}
-
-
 
 	public void setPrix(double prix) {
 		this.prix = prix;
@@ -212,7 +196,7 @@ public class Annonce {
 				+ ", description=" + description + ", ville=" + ville
 				+ ", categorie=" + categorie + ", photo1=" + photo1
 				+ ", photo2=" + photo2 + ", photo3=" + photo3 + ", photo4="
-				+ photo4 + ", prix=" + prix + "]";
+				+ ", prix=" + prix + "]";
 	}
 	
 	

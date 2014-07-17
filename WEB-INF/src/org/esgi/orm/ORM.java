@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import org.esgi.orm.annotations.*;
+import org.esgi.orm.annotations.ORM_PK;
+import org.esgi.orm.annotations.ORM_SEARCH_WITHOUT_PK;
+import org.esgi.orm.annotations.ORM_TABLE;
 
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
@@ -21,8 +23,13 @@ public class ORM implements IORM {
 	private static final  String TYPE_FIELD_STRING = "char(50)"; 
 	private static final  String TYPE_FIELD_INT = "int"; 
 	private static final  String TYPE_FIELD_FLOAT = "float"; 
+	private static final  String TYPE_FIELD_DOUBLE = "double"; 
 	private static final  String TYPE_FIELD_BOOLEAN = "tinyint(1)"; 
-
+	private static final  String TYPE_FIELD_DATE = "date"; 
+	
+	private static final String BDD_ADDR = "jdbc:mysql://localhost/java2e";
+	private static final String BDD_LOGIN = "java2e";
+	private static final String BDD_PASSWORD = "java2e";
 
 	static ORM instance;
 	private java.sql.Statement _statement;
@@ -56,7 +63,6 @@ public class ORM implements IORM {
 	 * clazz = nom de la classe, id = clé primaire 
 	 */
 	public Object _load(Class clazz, Object id) {
-		System.out.println(" ----- D�but LOAD ---- ");
 		Object o = null;
 		try {			
 			o = clazz.newInstance();
@@ -133,7 +139,6 @@ public class ORM implements IORM {
 	 * 		- VALUE HASMAP = VALEUR de critère de selection de la requête SQL
 	 */
 	public  ArrayList<Object> _loadWithoutPrimaryKey(Class clazz, ORM_SEARCH_WITHOUT_PK critere) {
-		System.out.println(" ----- Début LOAD WITOUT PRIMARY KEY ---- ");
 		
 		
 		init();
@@ -191,7 +196,6 @@ public class ORM implements IORM {
 			for(i = 0 ; i<tempValue.size() ; i++){
 				stat.setString(i+1, tempValue.get(i));
 			}
-			System.out.println(sql);
 
 			
 			ResultSet rs = (ResultSet) stat.executeQuery () ;
@@ -199,7 +203,6 @@ public class ORM implements IORM {
 			
 			Object tempO;
 			Field[] fields = clazz.getFields();
-			System.out.println("Liste retournée de la base :");
 			while (rs.next ())
 			{
 				tempO = clazz.newInstance();
@@ -209,7 +212,6 @@ public class ORM implements IORM {
 						f.set(tempO, rs.getObject(nameField));
 					}
 				}
-				System.out.println(tempO);
 				listO.add(tempO);
 			}
 
@@ -293,7 +295,6 @@ public class ORM implements IORM {
 			for(Field f : o.getClass().getFields()){
 				try{
 					Object ob = f.get(o);
-					//System.out.println("valeur du champ :" + ob.toString());
 					if(f.getAnnotation(ORM_PK.class) instanceof ORM_PK){
 						if(null != ob){
 							
@@ -304,7 +305,6 @@ public class ORM implements IORM {
 
 				}
 			}
-			//System.out.println(mapPrimaryKey.);
 			// Si on poss�de des cl� primaire non null alors UPDATE sinon INSERT
 			if(mapPrimaryKey.size() > 0){
 				boolean flagPremierPassage = false;
@@ -340,8 +340,7 @@ public class ORM implements IORM {
 				}
 				
 				String sqlUpdate = " UPDATE " + nameTable + " SET " + value + sqlClauseWhere; 
-				System.out.println(sqlUpdate);
-
+				
 				try {
 					_statement = this.connection.createStatement();
 				
@@ -349,7 +348,6 @@ public class ORM implements IORM {
 				_statement.executeUpdate(sqlUpdate);
 				
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}else{
@@ -380,7 +378,6 @@ public class ORM implements IORM {
 				value += " ) ";
 				field += " ) ";
 				String sqlUpdate = "INSERT INTO " + nameTable + field +value;
-				System.out.println(sqlUpdate);
 
 				try {
 					PreparedStatement pStatement = (PreparedStatement) connection.prepareStatement(sqlUpdate, Statement.RETURN_GENERATED_KEYS);
@@ -402,9 +399,6 @@ public class ORM implements IORM {
 					    }
 					}					
 					
-					while (rs.next()){
-						System.out.println(rs);
-					}
 
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -415,10 +409,12 @@ public class ORM implements IORM {
 	}
 
 	public void init(){
+		//Chargement du driver
 		try { Class.forName("com.mysql.jdbc.Driver").newInstance(); }
 		catch (Exception e) { e.printStackTrace(); }
+		//Récupération de la connexion à la base de données
 		try { 
-			this.connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/java2e","root","root") ;
+			this.connection = (Connection) DriverManager.getConnection(BDD_ADDR,BDD_LOGIN,BDD_PASSWORD) ;
 		}
 		catch (SQLException e) { e.printStackTrace();}
 	}
@@ -458,7 +454,6 @@ public class ORM implements IORM {
 				sql += " )";
 			}
 
-			System.out.println(sql);
 			_statement = this.connection.createStatement();
 
 			_statement.executeUpdate(sql);
@@ -524,10 +519,16 @@ public class ORM implements IORM {
 				return TYPE_FIELD_STRING;
 			}else if(name.equals("Integer")|| name.equals("int")){
 				return TYPE_FIELD_INT;
-			}else if (name.equals("Boolean") || name.equals("boolean")){
+			}else if (name.toLowerCase().equals("boolean") ){
 				return TYPE_FIELD_BOOLEAN;
-			}else if (name.equals("Float") || name.equals("float")){
+			}else if (name.toLowerCase().equals("float") ){
 				return TYPE_FIELD_FLOAT;
+			}else if (name.toLowerCase().equals("double") ){
+				return TYPE_FIELD_DOUBLE;
+			}else if (name.toLowerCase().equals("date") ){
+				return TYPE_FIELD_DATE;
+			}else{
+				return TYPE_FIELD_STRING;
 			}
 		}
 		return null;

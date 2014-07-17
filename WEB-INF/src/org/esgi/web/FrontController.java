@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,15 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.velocity.app.Velocity;
-import org.esgi.module.M2recherche.AnnonceEnDetail;
-import org.esgi.module.M2recherche.Recherche;
-import org.esgi.module.M2recherche.ResultatRecherche;
 import org.esgi.module.annonce.CreationAnnonce;
 import org.esgi.module.file.FileDelete;
 import org.esgi.module.file.FileDownload;
 import org.esgi.module.file.FileList;
 import org.esgi.module.file.FileUpload;
 import org.esgi.module.index.Index;
+import org.esgi.module.recherche.AnnonceEnDetail;
+import org.esgi.module.recherche.Recherche;
+import org.esgi.module.recherche.ResultatRecherche;
 import org.esgi.module.user.Connect;
 import org.esgi.module.user.Connexion;
 import org.esgi.module.user.Enregistrement;
@@ -71,6 +72,8 @@ public class FrontController extends HttpServlet{
 		configVelocity.setProperty("file.resource.loader.path", config.getServletContext().getRealPath("/") + properties.getProperty("template.path")+ "/");
 		Velocity.init(configVelocity);
 
+		properties.put("realPath", config.getServletContext().getRealPath("/"));
+
 		registerAction(new FileList());
 		registerAction(new FileDownload());
 		registerAction(new FileUpload());
@@ -87,8 +90,6 @@ public class FrontController extends HttpServlet{
 		registerAction(new Connexion());
 		registerAction(new EspacePerso());
 		registerAction(new CreationAnnonce());
-		//registerAction(new RechercheAnnonce());
-
 		registerAction(new Recherche());
 		registerAction(new ResultatRecherche());
 		registerAction(new AnnonceEnDetail());
@@ -105,15 +106,16 @@ public class FrontController extends HttpServlet{
 		IContext context = createContext(request, response);
 
 		if(url == null || url.equals("/")){
-			url = "/index/";
+			context.getResponse().sendRedirect(context.getRequest().getContextPath() + "/index/");
+			return;
 		}
 		
 		if(url.equals("/user/logout/")){
-			System.out.println("deco");
 			HttpSession session = request.getSession();
 			session.invalidate();
 			properties.remove("userConnected");
-			url = "/index/";
+			context.getResponse().sendRedirect(context.getRequest().getContextPath() + "/index/");
+			return;
 		}else{		
 			//Récupération de l'utilisateur connecté
 			HttpSession session = request.getSession();
@@ -122,7 +124,7 @@ public class FrontController extends HttpServlet{
 	    		properties.put("userConnected", userConnected);
 	       	}
 		}
-       	
+		
 		IAction action = router.find(url, context);
 		
 		properties.put("context", request.getContextPath());

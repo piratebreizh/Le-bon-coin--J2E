@@ -1,4 +1,4 @@
-package org.esgi.module.M2recherche;
+package org.esgi.module.recherche;
 
 import java.util.Enumeration;
 import java.util.Iterator;

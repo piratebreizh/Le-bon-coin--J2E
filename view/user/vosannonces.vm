@@ -1,12 +1,13 @@
 
-#if($utilisateurConnecter == false)
+#set ($user = $context.getProperties().get("userConnected"))
+#if(!$user)
     <h1>Veuillez vous connecter avant de voir vos annonces</h1>
 #else
 #set ($urlROOT = $context.getProperties().get("context"))
 
 <div class="list-lbc">
 #foreach( $customer in $listeRecherche )
-<a title="test" href="http://localhost:8080/Le-bon-coin--J2E/AnnonceEnDetail/?idAnnonce=$customer.Numero">
+<a title="test" href="$urlROOT/AnnonceEnDetail/?idAnnonce=$customer.Numero">
     <div class="lbc">
         <div class="date">
             <div>
@@ -33,7 +34,7 @@
             	$customer.Ville
             </div>
             <div class="price">
-				$customer.Prix
+				$customer.Prix €
             </div>
         </div>
         <div class="clear"></div>
