@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.velocity.app.Velocity;
+import org.esgi.module.annonce.AjoutPhotoAnnonce;
 import org.esgi.module.annonce.CreationAnnonce;
 import org.esgi.module.file.FileDelete;
 import org.esgi.module.file.FileDownload;
@@ -81,15 +81,12 @@ public class FrontController extends HttpServlet{
 		registerAction(new Index());
 		registerAction(new Connect());
 
-
-		registerAction(new CreationAnnonce());
-
-
 		registerAction(new Inscription());
 		registerAction(new Enregistrement());
 		registerAction(new Connexion());
 		registerAction(new EspacePerso());
 		registerAction(new CreationAnnonce());
+		registerAction(new AjoutPhotoAnnonce());
 		registerAction(new Recherche());
 		registerAction(new ResultatRecherche());
 		registerAction(new AnnonceEnDetail());

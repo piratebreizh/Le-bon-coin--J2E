@@ -1,8 +1,16 @@
 package org.esgi.module.annonce;
 
+import java.io.File;
 import java.sql.Date;
+import java.util.List;
 import java.util.regex.Pattern;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.esgi.web.action.AbstractAction;
 import org.esgi.web.action.IContext;
 import org.esgi.orm.ORM;
@@ -25,8 +33,6 @@ public class CreationAnnonce extends AbstractAction {
 			if(context.getRequest().getParameter("region") != null && context.getRequest().getParameter("description") != null && 
 					context.getRequest().getParameter("titre") != null && context.getRequest().getParameter("categorie") != null 
 					&& context.getRequest().getParameter("prix") != null ){
-				
-				
 				
 				java.util.Date today = new java.util.Date();
 				Date dateDuJouDate = new Date(today.getTime());

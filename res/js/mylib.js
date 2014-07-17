@@ -42,6 +42,10 @@ var global = this, loadMyLib = function(onloaded) {
 		},
 		render : function() {
 			this.el = $("<form/>");
+			console.log(this.cfg.enctype);
+			if(this.cfg.enctype)
+				this.el.enctype=this.cfg.enctype;
+			console.log(this.el.enctype);
 			$(this.cfg.renderTo).append(this.el)
 		},
 		onButtonClick : function(e) {
