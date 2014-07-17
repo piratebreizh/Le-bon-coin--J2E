@@ -28,8 +28,8 @@ public class ORM implements IORM {
 	private static final  String TYPE_FIELD_DATE = "date"; 
 	
 	private static final String BDD_ADDR = "jdbc:mysql://localhost/java2e";
-	private static final String BDD_LOGIN = "root";
-	private static final String BDD_PASSWORD = "root";
+	private static final String BDD_LOGIN = "java2e";
+	private static final String BDD_PASSWORD = "java2e";
 
 	static ORM instance;
 	private java.sql.Statement _statement;
