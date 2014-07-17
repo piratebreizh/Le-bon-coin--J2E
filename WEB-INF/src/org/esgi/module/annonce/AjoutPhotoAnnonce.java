@@ -50,12 +50,13 @@ public class AjoutPhotoAnnonce extends AbstractAction {
 					if(fileList.size()==0)
 						return;
 					
-					for(int i = 0 ; i< 3 ; i++){
-						FileItem uploadedFile = fileList.get(i);
+					for(int numPhoto = 0 ; numPhoto< 3 ; numPhoto++){
+						FileItem uploadedFile = fileList.get(numPhoto);
 						String idAnnonce = context.getRequest().getParameter("idAnnonce");
 						
 						if(idAnnonce== null)
-							idAnnonce = "temp";
+							idAnnonce = "1";
+						Annonce annonce = (Annonce) ORM.load(Annonce.class, idAnnonce);
 
 						//Si fichier et ID offre sont renseignés
 						if(uploadedFile.getName()!= null && !uploadedFile.getName().equals("") 
@@ -66,9 +67,14 @@ public class AjoutPhotoAnnonce extends AbstractAction {
 							//On créé les répertoires s'ils n'existent pas
 							File rep = new File(path);
 							rep.mkdirs();
-							File file = new File(path + uploadedFile.getName());
+							String fileUploadName = uploadedFile.getName();
+							String ext = fileUploadName.substring(fileUploadName.lastIndexOf("."), fileUploadName.length());
+							File file = new File(path + "photo"+numPhoto+ext);
 							uploadedFile.write(file);
+							
+							annonce.setPhoto(numPhoto, "offres/"+idAnnonce+"/photo"+numPhoto);
 						}
+						ORM.save(annonce);
 					}
 				}
 				catch (Exception e){
@@ -76,9 +82,7 @@ public class AjoutPhotoAnnonce extends AbstractAction {
 				}
 			}
 			
-			Annonce annonce = (Annonce) ORM.load(Annonce.class, 1);
 			
-			ORM.save(annonce);
 				
 		}
 		

@@ -78,7 +78,15 @@ public class Annonce {
 		this.categorie = categorie;
 	}
 
-
+	public void setPhoto(int num, String photo){
+		if(num==1){
+			this.photo1 = photo;
+		}else if(num==2){
+			this.photo2 = photo;
+		}else if(num==3){
+			this.photo3 = photo;
+		}
+	}
 
 	public String getPhoto1() {
 		return photo1;
