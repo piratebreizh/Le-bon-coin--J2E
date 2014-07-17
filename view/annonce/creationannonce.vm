@@ -6,36 +6,7 @@
 #if($utilisateurConnecter == false)
     <h1>Veuillez vous connecter avant de créer une annonce</h1>
 #else		
-	<form role="form" action="$context.getRequest().getContextPath()/annonce/recherche/" method="post" enctype="multipart/form-data">
-		<label for="region">Region</label>
-		    <div class="select">
-		    	<select name="region" onchange="showDepartment('region');" id="region">
-	                <option value="idf" >Ile de France</option>
-					<option value="bretagne" >Bretagne</option>
-					<option value="alsace" >Alsace</option>
-					<option value="aquitaine" >Aquitaine</option>
-					<option value="auvergne" >Auverge</option>
-					</select>
-			</div>
-			
-			
-		</br>
-		<label for="region">CP</label></br>
-		<input id="codePostal" name="codePostal" size="15" maxlength="50" type="text" value="" />
-		</br></br>
-		<label for="region">Titre annonce</label></br>
-		<input id="titreAnnonce" name="titreAnnonce" size="15" maxlength="50" type="text" value="" />
-		</br></br>
-		<label for="region">Déscription</label></br>
-		<input id="description" name="description" size="15" maxlength="50" type="text" value="" />
-		</br></br>
-		<label for="region">Prix</label></br>
-		<input id="description" name="description" size="15" maxlength="50" type="number" value="" />
-		</br></br>
-		Photo 1  : <input type="file" name="uploadFile1" /></br>
-		Photo 2  : <input type="file" name="uploadFile2" /></br>
-		Photo 3  : <input type="file" name="uploadFile3" /></br></br>
-		
-			<button type="submit" class="btn btn-default">Sauvegarder annonce</button>
-	</form>
+	#set ($js = $context.getProperties().get("context")+"/res/js/annonce/creation.js")
+	$context.addJSDependency($js)
+	$context.addOnJsReady("new Esgi.module.annonce.CreationAnnonce({ id : '#formCreationAnnonce'})")
 #end
