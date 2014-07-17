@@ -10,7 +10,7 @@ import org.esgi.web.action.IAction;
 import org.esgi.web.action.IContext;
 import org.esgi.web.route.Router;
 
-/* Le Layout Renderer �� pour fonction de g��n��rer
+/* Le Layout Renderer à pour fonction de générer
  * la vue en faisant le lien entre les class du package modules
  * et les template de vue de Velocity.
  */
@@ -22,14 +22,14 @@ public class LayoutRenderer {
 		JsonExtractor extractor = new JsonExtractor();
 	    ArrayList<String> layoutDependencies = 
 	            extractor.getDependencies(context.getRequest().getSession().getServletContext().getRealPath("/") + context.getProperties().getProperty("layout.path")+ "/" + action.getLayout()+".json");
-		// Chargement du fichier JSON de la liste des d��pendence au niveau des variable.
+		// Chargement du fichier JSON de la liste des dépendence au niveau des variable.
 		//String[] layoutDependencies = {"__CURRENT__","shared/main_header","shared/main_footer"};
 		
 		//Template Racine de la vue
 		String mainTemplateName = layoutDependencies.get(layoutDependencies.size()-1);
 		layoutDependencies.remove(layoutDependencies.size()-1);
 		
-		//Parcours des d��pendance et chargement des template
+		//Parcours des dépendance et chargement des template
 		for (String layoutDependence : layoutDependencies) {
 			IAction a;
 			if(layoutDependence.equals("__CURRENT__")){
