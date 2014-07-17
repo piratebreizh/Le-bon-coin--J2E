@@ -5,28 +5,8 @@
 
 #if($utilisateurConnecter == false)
     <h1>Veuillez vous connecter avant de créer une annonce</h1>
-#else
-
-
-		<form id="formUpload" enctype="multipart/form-data">
-		    <label for="inputFile">Upload a file here</label>
-		    <input type="file" name="file" id="inputFile">
-		    <input type="hidden" name="path" id="path" value=""/>
-		</form>
-		  <button onclick="Esgi.module.annonce.uploadPhoto();" class="btn btn-default">Upload File</button>
-		    
-		
+#else		
 	#set ($js = $context.getProperties().get("context")+"/res/js/annonce/creation.js")
 	$context.addJSDependency($js)
 	$context.addOnJsReady("new Esgi.module.annonce.CreationAnnonce({ id : '#formCreationAnnonce'})")
 #end
-
-
-<form id="formUpload" enctype="multipart/form-data">
-    <input name="file" type="file" />
-    <input type="button" value="Upload" />
-</form>
-<progress></progress>
-<script type="text/javascript" >
-
-</script>
