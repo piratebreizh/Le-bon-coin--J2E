@@ -50,20 +50,25 @@ public class AjoutPhotoAnnonce extends AbstractAction {
 					if(fileList.size()==0)
 						return;
 					
-					FileItem uploadedFile = fileList.get(0);
-					String idAnnonce = context.getRequest().getParameter("idAnnonce");
+					for(int i = 0 ; i< 3 ; i++){
+						FileItem uploadedFile = fileList.get(i);
+						String idAnnonce = context.getRequest().getParameter("idAnnonce");
+						
+						if(idAnnonce== null)
+							idAnnonce = "temp";
 
-					//Si fichier et ID offre sont renseignés
-					if(!(uploadedFile.getName()== null && uploadedFile.getName().equals("") 
-							&& idAnnonce.equals(""))){					
-						//on enregistre l'image
-						String path = context.getProperties().get("realPath") + "/" + "res/img/offres/" + idAnnonce + "/";
-						System.out.println("File uploaded to : " + path + uploadedFile.getName());
-						//On créé les répertoires s'ils n'existent pas
-						File rep = new File(path);
-						rep.mkdirs();
-						File file = new File(path + uploadedFile.getName());
-						uploadedFile.write(file);
+						//Si fichier et ID offre sont renseignés
+						if(uploadedFile.getName()!= null && !uploadedFile.getName().equals("") 
+								&& idAnnonce!= null && !idAnnonce.equals("")){					
+							//on enregistre l'image
+							String path = context.getProperties().get("realPath") + "/" + "res/img/offres/" + idAnnonce + "/";
+							System.out.println("File uploaded to : " + path + uploadedFile.getName());
+							//On créé les répertoires s'ils n'existent pas
+							File rep = new File(path);
+							rep.mkdirs();
+							File file = new File(path + uploadedFile.getName());
+							uploadedFile.write(file);
+						}
 					}
 				}
 				catch (Exception e){
