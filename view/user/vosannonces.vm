@@ -1,5 +1,6 @@
 
-#if($utilisateurConnecter == false)
+#set ($user = $context.getProperties().get("userConnected"))
+#if(!$user)
     <h1>Veuillez vous connecter avant de voir vos annonces</h1>
 #else
 #set ($urlROOT = $context.getProperties().get("context"))
