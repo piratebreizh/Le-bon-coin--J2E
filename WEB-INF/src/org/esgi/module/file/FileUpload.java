@@ -34,11 +34,11 @@ public class FileUpload extends AbstractAction {
 				}
 				
 				//Save new file
-				System.out.println("File uploaded to : " + context.getProperties().get("file.repository") + "/" + context.getParameter("path") + uploadedFile.getName());
-				File file = new File(context.getProperties().get("file.repository") + "/" + context.getParameter("path") + uploadedFile.getName());
+				System.out.println("File uploaded to : " + context.getProperties().get("realPath") + "/" + context.getParameter("path") + uploadedFile.getName());
+				File file = new File(context.getProperties().get("realPath") + "/" + context.getParameter("path") + uploadedFile.getName());
 				uploadedFile.write(file);
 				
-				context.getResponse().sendRedirect(context.getRequest().getContextPath() + "/file/list" + context.getParameter("path"));
+				//context.getResponse().sendRedirect(context.getRequest().getContextPath() + "/file/list/" + context.getParameter("path"));
 				
 			}
 			catch (Exception e){
