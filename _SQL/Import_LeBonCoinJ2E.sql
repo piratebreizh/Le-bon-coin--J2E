@@ -13,13 +13,18 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `java2e` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `java2e`;
 
+
+--
+-- Base de données: `java2e`
+--
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `annonce`
 --
 
-CREATE TABLE IF NOT EXISTS `annonce` (
+CREATE TABLE `annonce` (
   `numero` int(11) NOT NULL AUTO_INCREMENT,
   `titre` char(50) DEFAULT NULL,
   `description` char(50) DEFAULT NULL,
@@ -32,14 +37,17 @@ CREATE TABLE IF NOT EXISTS `annonce` (
   `prix` double DEFAULT NULL,
   `dateCreation` date DEFAULT NULL,
   PRIMARY KEY (`numero`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `annonce`
 --
 
 INSERT INTO `annonce` (`numero`, `titre`, `description`, `user`, `ville`, `categorie`, `photo1`, `photo2`, `photo3`, `prix`, `dateCreation`) VALUES
-(1, 'test', 'test', 1, 'idf', 'vehicule', 'offres/1/photo1.jpg', 'offres/1/photo2.jpg', 'offres/1/photo3.jpg', 9, '2014-05-18');
+(1, 'Mega voiture', 'c''est un très belle voiture', 1, 'idf', 'vehicule', 'offres/1/photo1.jpg', 'offres/1/photo2.jpg', 'offres/1/photo3.jpg', 9000, '2014-05-18'),
+(2, 'Enceinte', 'gros volume', 1, 'idf', 'mutlimedia', 'offres/2/photo1.jpg', 'offres/2/photo2.jpg', 'offres/2/photo3.jpg', 400, '2014-07-11'),
+(3, 'Vente suberbe studio', 'un studio en pleine cambrousse', 2, 'bretagne', 'immobilier', 'offres/3/photo1.jpg', 'offres/3/photo2.jpg', 'offres/3/photo3.jpg', 200000, '2014-07-01'),
+(4, '4 L', 'Authentique 4L', 1, 'idf', 'vehicule', 'offres/4/photo1.jpg', 'offres/4/photo2.jpg', 'offres/4/photo3.jpg', 3000, '2014-07-02');
 
 -- --------------------------------------------------------
 
@@ -47,7 +55,7 @@ INSERT INTO `annonce` (`numero`, `titre`, `description`, `user`, `ville`, `categ
 -- Structure de la table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` char(50) DEFAULT NULL,
   `password` char(50) DEFAULT NULL,
@@ -55,14 +63,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `prenom` char(50) DEFAULT NULL,
   `adresseMail` char(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `login`, `password`, `nom`, `prenom`, `adresseMail`) VALUES
-(1, 'test', 'test', 'test', 'test', NULL);
+(1, 'user1', 'user1', 'nomUser1', 'prenomUser1', 'user1@user.com'),
+(2, 'user2', 'user2', 'prenomUser2', 'nomUser2', 'user2@user2.com');
+
 
 CREATE USER 'java2e'@'localhost' IDENTIFIED BY  'java2e';
 
